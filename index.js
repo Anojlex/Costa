@@ -31,7 +31,7 @@ app.use(session({
 }));
 
 
-app.use('/costa', homepageRouter);
+app.use('/', homepageRouter);
 app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/home', productRouter);
