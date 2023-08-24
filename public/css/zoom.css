@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+.show {
+  width: auto;
+  height: 500px;
+  display:flex;
+  
+}
+
+.small-img {
+  width: 350px;
+  height: 70px;
+  margin-top: 10px;
+  position: relative;
+  left: 25px;
+}
+
+.small-container {
+  width: 310px;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.small-container div {
+  width: 800%;
+  position: relative;
+}
+
+.small-container .show-small-img {
+  width: 100px;
+  height: auto;
+  margin-right: 6px;
+  cursor: pointer;
+  float: left;
+  border: none;
+}
+
+.small-container .show-small-img:last-of-type { margin-right: 0; }
+
+.bigImg{
+  width: 400px;
+  height: auto;
+}
+.smallicon{
+  width: 15px;
+  height: auto;
+}
+
+.bigImg-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.bigImg-container img {
+  transition: transform 0.3s;
+}
+
+.bigImg-container.zoomed img {
+  transform: scale(1.5); /* Adjust the scale value as needed for the zoom level */
+}

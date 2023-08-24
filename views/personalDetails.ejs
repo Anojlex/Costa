@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details | COSTA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/personal-details.css">
+    <style>
+        /* Add any additional custom styles here if needed */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Add 'active' class to the active link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(3).png"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/cart"><img class="carticon" src="/images/icons8-cart-30.png"></a>
+                </li>
+                <li class="nav-item">
+            
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="col-md-2">
+            <div class="leftDiv">
+              <div class="myAccount">  <h4 >My Account</h4></div>
+                <ul>
+                    <li><a href="/user/Profile">Orders</a></li>
+                    <hr style="width: 85%; color: rgba(0, 0, 0, 0.323);">
+                    <li><h6>Profile</h6></li>
+                    <li><a href="/user/profile/personalInfo"><span style="color:#f26422 ;">Personal Information</span></a></li>
+                    <li><a href="/user/profile/addressBook">Address Book</a></li>
+                    <li><a href="/user/profile/wallet">Wallet</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="rightDiv">
+              <form class="personalInfo"  action="/user/profile/personalInfo/updateInfo" method="post">
+                <h4>Personal Information</h4> 
+                <p>Hey there! Fill in your details for a personalized COSTA shopping experience.</p>
+               <div class="userProfile">
+               <% if(typeof user!=='undefined'){ %>
+                <label>First Name*</label>
+                <div>
+                   
+                    <input type="text" placeholder="" id="firstname" value="<%= user.firstname %>" name="firstname">
+                </div>
+                <div id="firstname-error" class="error-message"></div>
+                <label>Last Name*</label>
+                <div>
+                  
+                    <input type="text" placeholder="" id="lastname" value="<%= user.lastname %>"   name="lastname" >
+                </div>
+                <div id="lastname-error" class="error-message"></div>
+                <label>Email Address*</label>
+                <div class="d-flex">
+                  
+                    <input type="text" placeholder="" value="<%= user.email %>"  readonly><button type="button" class="open-button" onclick="openEmailForm()">Change</button>
+                </div>
+                
+                <label>Password*</label>
+                <div class="d-flex">
+                  
+                    <input type="text" placeholder="********"  readonly><button type="button" class="open-button" onclick="openPasswordForm()">Change</button>
+                </div>
+               
+               
+                <div>
+                   
+                  <div class="radio">
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="Male" <% if (user.gender === 'Male') { %>checked<% } %>>
+                    <label>Male</label>
+                    <input type="radio" name="gender" value="Female" <% if (user.gender === 'Female') { %>checked<% } %>>
+                    <label>Female</label>
+                  </div>
+                </div>
+                <label>Phone*</label>
+                <div class="d-flex">
+                 
+                    <input type="text" value="<%= user.mobile %>" readonly><button type="button" class="open-button" onclick="openPhoneForm()">Change</button>
+                </div>
+                
+                <div class="updatebutton"><button type="submit">UPDATE</button></div>
+              </form>
+            </div>
+          <% } %>
+            <div class="overlay" id="overlay"></div>
+
+<!-- ------CHANGE EMAIL FORM--- ------->
+
+<div class="form-popup" id="emailForm">
+  <form action="/user/profile/personalInfo/changeEmail" method="post" class="form-container changeEmail">
+    <div class="close-btn ">
+      <h4>Enter New Email Address</h4>
+      <button type="button" class="btn-cancel" onclick="closeEmailForm()"><img src="/images/icons8-cancel-24.png"></button>
+    </div>
+
+    <input type="text" placeholder="New Email Address" id="email" name="newmail">
+    <div id="email-error" class="error-message"></div>
+    <input type="password" placeholder="Your COSTA Password" id="password" name="curPassword">
+    <div id="password-error" class="error-message"></div>
+    <div id="passwordError" class="error-message"></div>
+    <div id="changeSuccess" class="success-message"></div>
+    <button type="submit" class="btn">Save New Email Address</button>
+  </form>
+</div>
+
+
+<!-- ----CHANGE PASSWORD FORM--- -->
+<div class="form-popup" id="pwdForm">
+    <form action="/user/profile/personalInfo/changePwd" method="post" class="form-container changePassword">
+      <div class="close-btn"><h4>Change Password</h4>  <button type="button" class="btn-cancel" onclick="closePasswordForm()"><img src="/images/icons8-cancel-24.png"></button></div>
+     
+     
+      <input type="password" placeholder="Current Password" id="current" name="currentPwd" >
+      
+      <div class="forgotPassword"><a href="#" onclick="sendForgotPwdOTP()" >Forgot Password?</a></div>
+      <div id="current-error" class="error-message"></div>
+      <input type="password" placeholder="New Password" id="new" name="newPwd" >
+      <div id="new-error" class="error-message"></div>
+ 
+      <input type="password" placeholder="Confirm Password" id="confirm" name="confirmPwd" >
+      <div id="confirm-error" class="error-message"></div>
+      <div id="changePwdSuccess" class="success-message"></div>
+      <button type="submit" class="btn">Change Password</button>
+    
+    </form>
+  </div>
+
+
+<!---------------VERIFY OTP- forgot-------------->
+<!-- OTP verification form -->
+<div class="form-popup" id="OtpVerify">
+  <form class="form-container forgotOtp">
+      <div class="close-btn">
+          <h4>Enter OTP sent to Registered Phone Number</h4>
+          <button type="button" class="btn-cancel" onclick="closeForgotPwdOtpForm()">
+              <img src="/images/icons8-cancel-24.png">
+          </button>
+      </div>
+
+      <input type="text" id="otpInput" placeholder="Enter the received OTP" name="otp">
+      <div id="otp-error" class="error-message"></div>
+
+      <button type="button" class="btn" onclick="verifyOtp()">Verify OTP</button>
+  </form>
+</div>
+
+
+<!--================== ----FORGOT PASSWORD FORM----===================---->
+<!-- Change password form -->
+<div class="form-popup" id="ChangePwd">
+  <form  id="updateForgotPwd" class="form-container updateForgotPwd">
+      <div class="close-btn">
+          <h4>Change Password</h4>
+          <button type="button" class="btn-cancel" onclick="closeChangePwd()">
+              <img src="/images/icons8-cancel-24.png">
+          </button>
+      </div>
+
+      <input type="password" id="newp" placeholder="New Password" name="newPassword">
+      <div id="newp-error" class="error-message"></div>
+
+      <input type="password" id="confirmp" placeholder="Confirm Password" name="password">
+      <div id="confirmp-error" class="error-message"></div>
+
+      <div id="changePwdSuccessp" class="success-message"></div>
+      <button type="submit"  onclick="changePassword"  class="btn">Change Password</button>
+  </form>
+</div>
+
+
+
+  <!-- ------CHANGE PHONE---------->
+<div class="form-popup" id="phoneForm">
+    <form  class="form-container newNumSendOtp">
+     <div class="close-btn"><h4>Enter New Phone Number</h4> <button type="button" class="btn-cancel" onclick="closePhoneForm()"><img src="/images/icons8-cancel-24.png"></button></div>
+  
+      
+      <input type="text" id="newPhone" placeholder="Enter New Phone Number" name="mobile" >
+      <div id="newPhoneError" class="error-message"></div>
+
+      <button type="button" onclick="newNumSendOtp()" class="btn">Send OTP for Verification</button>
+     
+    </form>
+  </div>
+
+  
+<!---------------VERIFY OTP--------------->
+  <div class="form-popup" id="otpForm">
+    <form  class="form-container verifyChangePhoneOtp">
+     <div class="close-btn"><h4>Enter OTP</h4> <button type="button" class="btn-cancel" onclick="closeOtpForm()"><img src="/images/icons8-cancel-24.png"></button></div>
+  
+      <input type="text" id="changePhoneOtp"  placeholder="Enter the recieved OTP" name="otp" >
+      <div id="newPhoneOtpError" class="error-message"></div>
+      <div id="changePhoneSuccess" class="success-message"></div>
+      <button type="button" onclick="verifyChangePhoneOtp()" class="btn">Verify OTP</button>
+     
+    </form>
+  </div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+  <script src="/javascript/personal-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/payment.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Kids">Kids</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shoes&Bags</a>
+                </li>
+                <li class="nav-item ">
+                    <div class="cartCount"> </div>
+                    <a class="nav-link" href="#"><img class="wishlist" src="/images/icons8-heart-24(4).png"></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home/cart"><img class="carticon" src="/images/icons8-cart-30.png"></a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <div class="row mainRow">
+            <div class="col-lg-9">
+                <div class="leftDiv">
+                    <div class="paymentOptions">
+                        <div class="payHeading">Select Payment Mode</div>
+                        <div class="outer d-flex">
+                            <div class="paymentLeft">
+                                <div class="paymentOption" onclick="showPaymentOption()">
+                                   Online Payment
+                                </div>
+                                
+                                
+                                <div class="paymentOption" onclick="showCOD()">Cash On Delivery</div>
+                            </div>
+                            
+                            <div class="paymentRight" id="paymentDetails">
+
+                                <div class="PaymentForm" id="paymentForm">
+                                    <form method="post" action="/home/cart/proceedPayment/createRazorpayOrder?couponId=<%= couponId %>">
+                                        <h4>Card Payment</h4>
+                                        <p>For safe, contactless and hassle-free delivery, pay using card/wallet/netbanking</p>
+                                        <p>By placing this order, you agree to COSTA's T&C</p>
+                                        <div>Wallet Balance: <b><%= walletBalance %></b></div>
+                                       <div> <input type="checkbox" name="walletUsed" id="walletUsed" value="true"><label>Use wallet Amount</label></div>
+                                        <button type="submit" id="payButton">PAY <%= CouponAppliedPrice %></button>
+                                    </form>
+                                </div>
+                                <div class="walletForm" id="walletForm">
+                                    <form method="post" action="">
+                                        <h5>Wallet Payment</h5>
+                                        <p>For safe, contactless and hassle-free delivery, pay using card/wallet/netbanking</p>
+                                        <p>By placing this order, you agree to COSTA's T&C</p>
+                                       <div>Wallet Balance:<b><%= walletBalance %></b></div>
+                                            <button type="submit" >PAY  <%= CouponAppliedPrice %></button>
+                                      
+                                    </form>
+                                   
+                                </div>
+
+                                   
+
+
+
+
+
+
+                                <div class="COD" id="CODform">
+                                    <h4>Cash On Delivery</h4>
+                                    <p>For safe, contactless and hassle free delivery, pay using card/wallet/netbanking</p>
+                                    
+                                    <button id="payButtonCod" onclick="openCODconfirm()">PLACE ORDER</button>
+                                    <p>By placing this order, you agree to COSTA's T&C</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="rightDiv">
+                    <div class=" summary">
+                        <div class="mt-2">
+                            <h6><b>Order Details</b></h6>
+                        </div>
+                        <% if(typeof totalPrice!=='undefined' &&typeof totalSalePrice!=='undefined' ){ %>
+                            <div class="row mt-3">
+                                <div class="col ">Bag Total</div>
+                                <div class="col text-right">&#8377; <%= totalPrice %>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Bag Discount</div>
+                                <div class="col text-right">&#8377;<%= totalPrice-totalSalePrice %>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Coupon Savings</div>
+                                <div class="col text-right">&#8377;<%=couponSaving%>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Delivery Fee</div>
+                                <div class="col text-right">&#8377;<span style="text-decoration: line-through;">99
+                                    </span><span style="color: green;font-weight: 600;">Free</span></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Order Total</div>
+                                <div class="col text-right">&#8377; <%= CouponAppliedPrice %>
+                                </div>
+                            </div>
+
+
+                    </div>
+
+                    <%} else { %>
+                        <div>Empty</div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overlay" id="overlay"></div>
+
+
+    <div class="CODconfirm" id="CODconfirm">
+        <div>
+            <h6>Cash On Delivery</h6>
+        </div>
+        <div>
+            <p>You have opted to pay cash on delivery.You may choose prepaid mode of payment</p>
+        </div>
+        <div class="price">
+            <div class="pricetext mt-2">
+                <div class="col">Item Total</div>
+                <div class="col ml-2">&#8377; <%= totalSalePrice %>
+                </div>
+            </div>
+            <div class="pricetext mt-2">
+                <div class="col">Coupon  Savings</div>
+                <div class="col ml-2">&#8377; <%= couponSaving %>
+                </div>
+            </div>
+            <div class="pricetext mt-2 ">
+                <div class="col">Delivery Fee</div>
+                <div class="col ">&#8377;<span style="text-decoration: line-through;">99 </span><span
+                        style="color: green;font-weight: 600;">Free</span></div>
+            </div>
+            <div id="displayWallet" class="pricetext mt-2">
+                <div class="col">Wallet Amount Used</div>
+                <div class="col">&#8377; <%= walletBalance %>
+                </div>
+            </div>
+            <div class="pricetext mt-2">
+                <div class="col">Amount to be Paid</div>
+                <div id="codAmountTotal" class="col"><%= CouponAppliedPrice %>
+                </div>
+            </div>
+        </div>
+
+
+        <a href="/home/cart/proceedPayment/placeOrder?method=Cash on Delivery&couponId=<%= couponId %>"><button id="b1">Confirm Order</button></a>
+        <button id="b2" onclick="closeCODconfirm()">Choose other Payment Mode</button>
+    </div>
+
+
+
+   
+    <script>
+        const couponPrice = <%= CouponAppliedPrice %>;
+        const walletBalance = <%= walletBalance %>;
+    
+        const checkbox = document.getElementById('walletUsed');
+        const payButton = document.getElementById('payButton');
+    
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                const payableAmount = couponPrice - walletBalance;
+                if (payableAmount <= 0) {
+                    payButton.textContent = 'Place Order Using Wallet';
+                } else {
+                    payButton.textContent = 'PAY ' + payableAmount.toFixed(2) ;
+                }
+            } else {
+                payButton.textContent = 'PAY ' + couponPrice.toFixed(2);
+            }
+        });
+
+
+    </script>
+<script>
+    const couponPrice = <%= CouponAppliedPrice %>;
+    const walletBalance = <%= walletBalance %>;
+    
+    const checkboxCod = document.getElementById('walletUsedCod');
+    const codAmountTotal = document.getElementById('codAmountTotal');
+
+    checkboxCod.addEventListener('change', () => {
+        if (checkboxCod.checked) {
+            const payableAmount = couponPrice - walletBalance;
+            if (payableAmount <= 0) {
+                codAmountTotal.textContent = 'Place Order Using Wallet';
+            } else {
+                codAmountTotal.textContent = 'PAY ' + payableAmount.toFixed(2);
+            }
+        } else {
+            codAmountTotal.textContent = 'PAY ' + couponPrice.toFixed(2);
+        }
+    });
+</script>
+
+   
+ <!-- Inside index.html -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    // Check if razorpayOrder is defined
+    <% if(typeof razorpayOrder !== 'undefined') {%>
+    var options = {
+        "key": "rzp_test_TzPjF3kXP041DJ",
+        "amount": "<%= razorpayOrder.amount %>",
+        "currency": "<%= razorpayOrder.currency %>",
+        "name": "COSTA",
+        "description": "Order Payment",
+        "order_id": "<%= razorpayOrder.id %>",
+        "handler": function (response) {
+          
+            console.log(JSON.stringify(response));
+    
+            verifyPayment(response.razorpay_payment_id,response.razorpay_order_id,response.razorpay_signature);
+        },
+        "prefill": {
+            "name": "User Name", 
+            "email": "user@example.com", 
+            "contact": "1234567890" 
+        },
+        "theme": {
+            "color": "#f26422"
+        }
+    };
+    var razorpayObject = new Razorpay(options);
+    razorpayObject.open();
+
+     
+  <%}%>
+function verifyPayment(payment_id, order_id,razorpay_signature) {
+   
+    const data = {
+        payment_id: payment_id,
+        order_id: order_id
+    };
+
+   
+    fetch("/home/cart/proceedPayment/verifyPayment", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            'x-razorpay-signature': razorpay_signature
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => { 
+        if (data.success) {
+          
+            window.location.href = "/home/cart/proceedPayment/placeOrder?method=Online Payment&couponId=<%= couponId %>"
+        } else {
+     
+            console.log("Payment verification failed");
+           
+        }
+    })
+    .catch(error => {
+        console.error("Error verifying payment:", error);
+    
+    });
+}
+
+
+  
+  
+
+  
+  
+
+</script>
+
+
+    <script src="/javascript/paymentOptions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

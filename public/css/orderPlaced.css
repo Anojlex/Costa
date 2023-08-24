@@ -1,0 +1,177 @@
+
+.nav-item {
+    position: relative; /* Ensure parent container is positioned */
+}
+.nav-my-links {
+
+    margin-left: 60%; 
+}
+
+.outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; 
+    height: 85px;
+    box-shadow: 0px 15px 18px rgba(83, 81, 81, 0.13);
+    
+}
+
+.costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; 
+    font-size: 24px; 
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #f26422; 
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+
+
+@media (max-width: 992px) {
+    .nav-my-links {
+        margin-left: 0;
+    }
+
+    .outer-nav {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .product-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.leftDiv{
+    width: 100%;
+ height: 100%;
+ /* border: 1px solid rgba(0, 0, 0, 0.295); */
+}
+.rightDiv{
+    width: 80%;
+    height: fit-content;
+    border: 1px dotted rgba(0, 0, 0, 0.786);
+    margin-top: 43px;
+    padding: 20px;
+    font-size: 14px;
+ border-radius: 8px;
+    color: #000000ba;
+  
+}
+
+.container {
+    margin-top: 20px;
+}
+
+
+
+
+
+.mainRow{
+    height: 350px;
+}
+
+.mainRow{
+    margin-top: 80px;
+}
+
+.priceText {
+    display: flex;
+    width: 200px;
+}
+
+.price-info {
+    width: fit-content;
+}
+
+.price-and-btn {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+
+/* Styles for buttons and links */
+.btn {
+    background-color: #fefefe;
+    border-color: #f26422;
+    color: #f26422;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 2px;
+    height: 38px;
+}
+
+
+.orderConfirm{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color:#665c5783;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    color: rgb(66, 61, 61);
+    margin-top: 20px;
+}
+
+.text{
+    padding-left: 50px;
+    padding-right: 50px;
+font-size: 14px;
+
+}
+.orderConfirm button{
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+}
+.orderConfirm button:hover{
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+.address-card {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;  
+    cursor:pointer;
+    border: 1px dotted;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.name{
+    font-weight: 700;
+}
+.phone{
+    font-weight: 700;
+}
+
+.image{
+    width: 80%;
+    height: auto;
+    border: 5px solid white;
+}
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

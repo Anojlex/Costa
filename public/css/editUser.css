@@ -1,0 +1,124 @@
+
+#signup-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #signup-form {
+    width: 420px;
+    max-width: 100%;
+    background-color: #c2bdbde3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  @media (max-width: 576px) {
+    #signup-form {
+      width: 100%;
+    }
+  }
+  #signup-form h2 {
+    color: #333;
+  }
+  
+  #signup-form form {
+    margin-top: 20px;
+  }
+  
+  #signup-form input[type="text"],
+  #signup-form input[type="email"],
+  #signup-form input[type="mobile"],
+  #signup-form input[type="password"] ,
+  select
+
+  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    border-radius: 12px;
+  }
+  
+  #signup-form button.signup {
+    width: 100%;
+    padding: 10px;
+    background-color: #f26422e7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  #signup-form a {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #signup-form a:hover {
+    text-decoration: underline;
+    color: #f26422;
+  }
+  .nav-link :hover {
+  
+    color: #f26422;
+  }
+  #close-btn-1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #161515;
+    cursor: pointer;
+  }
+  
+  .forgot {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .signup-input {
+    margin-top: 20px;
+  }
+  .nav-my-links {
+    margin-left: 60%; /* Push the links to the right */
+  }
+  .outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; /* Add background color to the navbar */
+  }
+  .costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; /* Change the logo color */
+    font-size: 24px; /* Increase the logo font size */
+  }
+  .navbar-nav .nav-item.active .nav-link {
+    color: #f26422; /* Change the active link color */
+  }
+  .navbar-nav .nav-link {
+    color: #333;
+  }
+  @media (max-width: 576px) {
+    .signup-form-p {
+      margin-top: 10px;
+    }
+  
+    .signup-input input {
+      width: 100%;
+    }
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

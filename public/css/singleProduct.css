@@ -1,0 +1,496 @@
+.nav-my-links {
+    margin-left: 60%; /* Push the links to the right */
+}
+
+.outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; /* Add background color to the navbar */
+    box-shadow: 0px 15px 18px rgba(83, 81, 81, 0.13);
+    position:fixed ;top: 0%;
+    width: 100%;
+    z-index: 9999;
+}
+
+.costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; /* Change the logo color */
+    font-size: 24px; /* Increase the logo font size */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #f26422; /* Change the active link color */
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+.container {
+    margin-top: 10%;
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 17%;
+}
+
+.sidebar h4 {
+    margin-bottom: 10px;
+   
+}
+
+.filter-options {
+    margin-bottom: 20px;
+    width: 160px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+
+
+@media (max-width: 992px) {
+    .nav-my-links {
+        margin-left: 0;
+    }
+
+    .outer-nav {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .product-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.box_main {
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.tshirt_img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.shirt_text {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product-tile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sale-price_text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f26522;
+}
+
+.price_text {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discount-price {
+    font-size: 14px;
+    color: #999;
+}
+
+.btn_main {
+    margin-top: 20px;
+    display: flex;
+}
+
+.add_bt,
+.buy_bt,
+.wishlist-heart {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 5px;
+}
+
+.add_bt a,
+.buy_bt a {
+    display: block;
+    font-size: 14px;
+  
+    color: #121111;
+    
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.add_bt a:hover,
+.buy_bt a:hover {
+  text-decoration: underline;
+}
+
+.wishlist-heart a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-heart img {
+    width: 20px;
+    height: 20px;
+}
+.filter-bar{
+    width: 100%;
+}
+.product-details {
+    display: flex;
+  
+}
+
+.product-images {
+    width: 15%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.product-image:hover {
+    transform: scale(1.2);
+}
+
+.product-info {
+    width: 50%;
+    padding: 10px;
+    margin-left: 8%;
+}
+
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.price-info {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f26522;
+    margin-bottom: 10px;
+}
+
+.price-text {
+    font-size: 16px;
+    color: #999;
+    margin-right: 10px;
+    text-decoration: line-through;
+}
+
+.discount-text {
+    font-size: 16px;
+    color: #999;
+}
+
+.size-select {
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.add-to-cart-button,
+.add-to-wishlist-button {
+    display: inline-block;
+   
+    border: solid 1px rgba(0, 0, 0, 0.608);
+    border-radius: 5px;
+    background-color: white;
+    color: #e74c1d;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-right: 10px;
+    width: 150px;
+    height: 50px;
+}
+
+
+
+
+.add-to-cart-button:hover,
+.add-to-wishlist-button:hover {
+   border-color: #e74c1d;
+}
+
+.add-to-cart-button:focus,
+.add-to-wishlist-button:focus {
+    outline: none;
+}
+/* Custom CSS for Big Round Buttons */
+.size-select {
+    margin-bottom: 20px;
+}
+
+.size-buttons {
+    display: flex;
+}
+
+
+.image-thumbnail{
+    width: 90px;
+    height: auto;
+    margin-top: 19px;
+}
+.image-thumbnail img{
+    width: 100%;
+    height: auto;
+    border: none;
+}
+/* Add this to your <style> or CSS file */
+.image-preview {
+    margin-top: 20px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    width: 390px;
+    height: 489px;
+}
+
+.image-preview-frame {
+    width: 390px;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+    
+}
+
+.image-preview-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.slider-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.prev {
+    margin-right: 10px;
+}
+
+.next {
+    margin-left: 10px;
+}
+.buttons{
+    margin-top: 50px;
+    display:flex ;
+    
+}
+.pincode{
+    display: flex;
+    flex-direction: column;
+
+}
+.pincode-search{
+    display: flex;
+    border: 1px rgba(0, 0, 0, 0.352) solid;
+    width: 200px;
+    border-radius: 9px;
+    height: 44px;
+  }
+
+.pincode-search button{
+   border: none;
+   background-color: white;
+   border-radius:12px ;
+}
+.pincode-search input{
+    margin-left: 10px;
+    width: 130px;
+    border: none;
+    background-color: white;
+    border-radius: 9px;
+    outline: none;
+}
+.small-text{
+    font-size: 12px;
+}
+.delivery{
+    display: flex;
+    margin-top: 20px;
+}
+.delivery  p{
+    font-weight: 600;
+}
+.delivery img{
+    width: 20px;
+    height: 20px;
+
+}
+.details{
+    margin-top: 20px;
+}
+
+.footer{
+height: 300px;
+
+}
+.wishlist{
+ width: 20px;
+ height: auto;
+}
+.cart{
+  width: 20px;
+  height: auto;
+ }
+
+      
+.loader,.added-to-cart-message{
+display: none;
+}
+
+/* Styles for the custom size buttons */
+.boxed .size-label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+    border-radius: 2px;
+  }
+  
+  /* Styles for the selected size button */
+  .boxed .size-label.selected {
+    background-color: #f26422; /* Change this to your desired color */
+    color: white;
+  }
+
+  /* ========================================= */
+
+  
+.show {
+    width: 390px;
+    height: 489px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .small-img {
+    width: 350px;
+    height: 70px;
+    margin-top: 10px;
+    position: relative;
+    left: 25px;
+  }
+  
+.small-img img{
+    border: none;
+}
+
+  .small-img .icon-left, .small-img .icon-right {
+    width: 12px;
+    height: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  }
+  
+  .small-img .icon-left { transform: rotate(180deg) }
+  
+  .small-img .icon-right { right: 0; }
+  
+  .small-img .icon-left:hover, .small-img .icon-right:hover { opacity: .5; }
+  
+  .small-container {
+    width: 310px;
+    height: 70px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  
+  .small-container div {
+    width: 800%;
+    position: relative;
+  }
+  
+  .small-container .show-small-img {
+    width: 70px;
+    height: 70px;
+    margin-right: 6px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  .small-container .show-small-img:last-of-type { margin-right: 0; }
+  
+
+  .preview-box{
+    display: flex;
+    
+  }
+
+  .outofStock{
+    display: flex;
+    flex-direction: column;
+  }

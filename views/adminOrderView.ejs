@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminOrderView.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="admin-logo" href="/admin">Admin Panel</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item ">
+                    <a href="/admin/dashboard">Dashboard</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/listProducts">Products</a>
+                </li>
+                <li class="menu-item ">
+                    <a href="/admin/categories">Categories</a>
+                </li>
+                <li class="menu-item active">
+                    <a href="/admin/orders">Orders</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/coupons">Coupons</a>
+                </li>
+                <li class="menu-item ">
+                    <a href="/admin/listUsers ">Customers</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/banners">Banners</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="navbar">
+                    <div class="backToShop"><a href="/admin/orders"><button>&leftarrow;Back to Orders</button></a></div>
+                    <a style="color:white" href="/admin/logout">
+                        <button class="add-category-btn">logout</button>
+                    </a>
+                    
+                </div>
+            </div> 
+        <div class="container">
+            <div class="row mainRow">
+                <div class="col-lg-7">
+                    <div class="col-md-12 cart-card">
+                            
+                       
+                        <div class="address-card">                    
+                            <h6 style="color: rgba(0, 0, 0, 0.599);"><b>Ordered by</b></h6>                  
+                            <div class="name"><%= order.user.firstname %> <%= order.user.lastname %></div>
+        
+                            <div class="district"><%= order.shippingAddress.city %>,<%= order.shippingAddress.state %></div>
+                            <div class="pincode">India-<%= order.shippingAddress.pincode %></div>
+                            <div>Phone:<span class="phone"><%= order.user.mobile %></span></div>     
+                            <div>Email:<span class="phone"><%= order.user.email %></span></div>                             
+                          </div>
+                       
+
+                     
+                        
+                    </div>
+                    <div class="row text-muted status">Order ID:<%= order.orderId %></div>
+                    <div class="leftDiv">
+                        <div class="col-md-12 cart-card">
+                            
+                            <% let totalPrice = 0; %>
+                            <% let totalSalePrice = 0; %>
+                            <% let totalQuantity=0; %>
+                            <% for (let i = 0; i < order.cart.length; i++) { %>
+                            <% totalPrice += order.cart[i].price * order.cart[i].quantity; %>
+                            <% totalSalePrice += order.cart[i].broughtPrice * order.cart[i].quantity; %>
+                            <% totalQuantity+=order.cart[i].quantity %>
+                            <div class="row border-top border-bottom mt-3">
+                                <div class="row main align-items-center">
+                                   
+                                
+                                    
+                                    <div class="col-3">
+                                       <img class="image"  src="data:<%= order.cart[i].product.images[0].contentType %>;base64,<%= order.cart[i].product.images[0].data.toString('base64') %>"
+                                            alt="Product Image">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row text-muted description"><%= order.cart[i].product.title %>-<%= order.cart[i].product.description %></div>
+                                      <div class="price">&#8377;<b><%= order.cart[i].product.saleprice %></b> </div>
+                                        <div class="size">Size:<span style="font-weight: bold;">M</span></div>
+                                        <div class="estimatedDelivery">Estimated Delivery Tue,08 Aug</div>
+                                    </div>
+                                    <div class="col cancelOrder">
+                                        <div class=" text-muted ">Order Status:<b><%= order.status %></b></div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            
+                            <% } %>
+    
+                         
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="rightDivTop">
+                        <div class="summary">
+                           <div class="mt-2">Order# <%= order.orderId %></div>
+                           <div class="mt-2">Order Placed On <%= (new Date(order.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></div>
+                           <div class="mt-2">Paid by <%= order.paymentMode %></div>
+                        </div>
+                    </div>
+                    <div class="rightDiv">
+                        
+                        <div class="summary">
+                            <% if (typeof totalPrice !== 'undefined' && typeof totalSalePrice !== 'undefined') { %>
+                            <div class="mt-2">
+                                <h6><b>Order Details</b></h6>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">No of items</div>
+                                <div class="col text-right"> <%= totalQuantity %></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">Bag Total</div>
+                                <div class="col text-right">&#8377; <%= totalPrice %></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Bag Discount</div>
+                                <div class="col text-right">&#8377;<%= totalPrice - totalSalePrice %></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Delivery Fee</div>
+                                <div class="col text-right">&#8377;<span style="text-decoration: line-through;">99 </span><span
+                                        style="color: green;font-weight: 600;">Free</span></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col">Order Total</div>
+                                <div class="col text-right">&#8377; <%= totalSalePrice %></div>
+                            </div>
+                            <% } else { %>
+                            <div>Empty</div>
+                            <% } %>
+                        </div>
+                    </div>
+    
+                   
+                     <div class="address-card">                    
+                        <h6 style="color: rgba(0, 0, 0, 0.599);"><b>Deliver to</b></h6>                  
+                        <div class="name"><%= order.shippingAddress.name %></div>
+                        <div class="house"><%= order.shippingAddress.buildingName %>,<%= order.shippingAddress.locality %></div>
+                        <div class="landmark"> <%= order.shippingAddress.landmark %></div>
+                        <div class="district"><%= order.shippingAddress.city %>,<%= order.shippingAddress.state %></div>
+                        <div class="pincode">India-<%= order.shippingAddress.pincode %></div>
+                        <div><p >Phone:<span class="phone"><%= order.shippingAddress.mobile %></span></p></div>                                 
+                      </div>
+    
+    
+    
+    
+                </div>
+            </div>
+        </div>
+    
+        <div class="overlay" id="overlay"></div>
+    
+        <div id="cancelOrderPopup" class="cancelOrderPopup">
+            <div><p>Are you sure that you want to cancel this Order?</p></div>
+            <form method="post" action="/user/profile/orderDetails/changeOrderStatus?orderId=<%= order.orderId %>">
+            <div class="buttons">
+            <button   type="button" id="b2" onclick="closeCancelOrder()">Close</button>
+           <button type="submit"  id="b1">Yes,I'm Sure</button>
+            </div>
+            </form>
+              </div>
+    
+    <script>
+        const openCancelOrder = () => {
+        
+      
+          document.getElementById("cancelOrderPopup").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+        };
+      
+        const closeCancelOrder = () => {
+         
+          document.getElementById("cancelOrderPopup").style.display = "none";
+          document.getElementById("overlay").style.display = "none";
+        };
+      
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

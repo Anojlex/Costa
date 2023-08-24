@@ -1,0 +1,182 @@
+.nav-my-links {
+    margin-left: 60%; /* Push the links to the right */
+}
+
+.outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; /* Add background color to the navbar */
+    box-shadow: 0px 15px 18px rgba(83, 81, 81, 0.13);
+    position:fixed ;top: 0%;
+    width: 100%;
+}
+
+.costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; /* Change the logo color */
+    font-size: 24px; /* Increase the logo font size */
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #f26422; /* Change the active link color */
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+.container {
+    margin-top: 10%;
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 17%;
+}
+
+.sidebar h4 {
+    margin-bottom: 10px;
+   
+}
+
+.filter-options {
+    margin-bottom: 20px;
+    width: 160px;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+
+
+@media (max-width: 992px) {
+    .nav-my-links {
+        margin-left: 0;
+    }
+
+    .outer-nav {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .product-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.box_main {
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.tshirt_img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.shirt_text {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product-tile {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.sale-price_text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f26522;
+}
+
+.price_text {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discount-price {
+    font-size: 14px;
+    color: #999;
+}
+
+.btn_main {
+    margin-top: 20px;
+    display: flex;
+}
+
+.add_bt,
+.buy_bt,
+.wishlist-heart {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 5px;
+}
+
+.add_bt a,
+.buy_bt a {
+    display: block;
+    font-size: 14px;
+  
+    color: #121111;
+    
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.add_bt a:hover,
+.buy_bt a:hover {
+  text-decoration: underline;
+}
+
+.wishlist-heart a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-heart img {
+    width: 20px;
+    height: 20px;
+}
+.filter-bar{
+    width: 100%;
+}
+.wishlist{
+width: 20px;
+height: auto;
+}
+.cart{
+    width: 20px;
+    height: auto;
+}

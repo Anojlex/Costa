@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address | COSTA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/addressBook.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(3).png"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><img class="carticon" src="/images/icons8-cart-30.png"></a>
+                </li>
+                <li class="nav-item">
+                    <!-- Add a logout/login link here based on user login status -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="col-md-2">
+            <div class="leftDiv">
+              <div class="myAccount">  <h4 >My Account</h4></div>
+                <ul>
+                    <li><a href="/user/Profile">Orders</a></li>
+                    <hr style="width: 85%; color: rgba(0, 0, 0, 0.323);">
+                    <li><h6>Profile</h6></li>
+                    <li><a href="/user/profile/personalInfo">Personal Information</a></li>
+                    <li><a href="/user/profile/addressBook"><span style="color:#f26422 ;">Adress Book</span></a></li>
+                    <li><a href="/user/profile/wallet">Wallet</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="rightDiv">
+                <h4>Address Book</h4>
+                <p>Save all your addresses for a faster checkout experience.</p>
+                <div class="address-card-outer">
+                <div onclick="openaddAddres()" class="address-card-1"> 
+                   <img src="/images/icons8-location-48.png" ><p>Add new address</p>
+                </div>
+                <% if(typeof address!=='undefined'&&address.length>0){ %>
+                    <% for(let i=0;i<address.length;i++) {%>
+                <div class="address-card">  
+                    <% if(address[i].Default=="true"){ %>
+                    <div class="default">Default</div>
+                    <%}%>
+                    <div class="default"><%= address[i].addressType %></div>
+                <div class="name"><%= address[i].name %></div>
+                <div class="house"> <%= address[i].buildingName %>,<%= address[i].locality %></div>
+                <div class="landmark"> <%= address[i].landmark %></div>
+                <div class="district"><%= address[i].city %>,<%= address[i].state %></div>
+                <div class="pincode">India-<%= address[i].pincode %></div>
+                <div><p class="phone">Phone:<%= address[i].mobile %></p></div>
+                <div class="buttons">
+                    <a href="#" onclick="openEditAddres(<%= JSON.stringify(address[i]) %>)"><img src="/images/icons8-edit-48.png">Edit</a>
+                    <a href="#" onclick="openDeleteAddress(<%= JSON.stringify(address[i]) %>)" >Delete</a>
+                </div>
+                </div>
+              
+      <% } %> 
+      <% } %> 
+                </div>
+                
+                </div>
+            </div>
+            <div class="overlay" id="overlay"></div>
+   
+     <!--====== EDIT ADDRESS =====================-->
+
+     <div class="form-popup" id="editAddres">
+        <form action="/user/profile/addressBook/updateAddress" method="post"  class="form-container">
+          <div class="close-btn"><h5>Edit Address Details</h5>  <button type="button" class="btn-cancel" onclick="closeEditAddres()"><img src="/images/icons8-cancel-24.png"></button></div>
+      
+            <label>Name*</label>
+
+          <input type="text" id="editName" placeholder="" name="name" >
+
+           <label>Mobile*</label>
+
+          <input type="text" id="editMobile" name="mobile" >
+     
+          <label>Pin Code*</label>
+         
+          <input type="text" id="editPincode" name="pincode" >
+      
+          <label>Locality/Area/Street*</label>
+
+          <input type="text" id="editLocality" name="locality">
+
+          <label>Flat Number/Building Name*</label>
+
+          <input type="text" id="editBuildingName"  name="buildingname">
+          
+          <label>landmark</label>
+
+          <input type="text" id="editLandmark"  name="landmark">
+
+          <label>District/City*</label>
+
+          <input type="text" id="editCity"  name="city">
+
+          <label>State</label>
+          
+          <input type="text" id="editState"  name="state">
+
+          <label>Adress Type</label>
+           
+          <div class="addressTypeRadio">
+            <input type="radio" name="addressType" value="Home" id="homeRadio">
+            <label for="homeRadio">Home</label>
+      
+            <input type="radio" name="addressType" value="Work" id="workRadio">
+            <label for="workRadio">Work</label>
+      
+            <input type="radio" name="addressType" value="Others" id="othersRadio">
+            <label for="othersRadio">Others</label>
+
+           
+          </div>
+        
+           <input type="hidden" id="addressId" name="id">
+          <button type="submit" class="btn">Save</button>
+        
+        </form>
+      </div>
+
+
+
+
+
+
+     <!-- --------------------------------------------------------------------------------- -->
+  <!-------------------- ADD ADRESS--------- -->
+  <div class="form-popup" id="addAddres">
+    <form action="/user/profile/addressBook/addAddress" id="addAddresForm" method="post" class="form-container">
+      <div class="close-btn">
+        <h5>Add New Address</h5>
+        <button type="button" class="btn-cancel" onclick="closeaddAddres()"><img src="/images/icons8-cancel-24.png"></button>
+      </div>
+  
+      <label>Name*</label>
+      <input type="text" placeholder="Name" name="name" id="name">
+      <div id="name-error" class="error-message"></div>
+  
+      <label>Mobile*</label>
+      <input type="text" placeholder="Mobile" name="mobile" id="mobile">
+      <div id="mobile-error" class="error-message"></div>
+  
+      <label>Pin Code*</label>
+      <input type="text" placeholder="Pin Code" name="pincode" id="pincode">
+      <div id="pincode-error" class="error-message"></div>
+  
+      <label>Locality/Area/Street*</label>
+      <input type="text" placeholder="Locality/Area/Street" name="locality" id="locality">
+      <div id="locality-error" class="error-message"></div>
+  
+      <label>Flat Number/Building Name*</label>
+      <input type="text" placeholder="Building name" name="buildingname" id="buildingname">
+      <div id="buildingname-error" class="error-message"></div>
+  
+      <label>Landmark</label>
+      <input type="text" placeholder="Landmark" name="landmark" id="landmark">
+      <div id="landmark-error" class="error-message"></div>
+  
+      <label>District/City*</label>
+      <input type="text" placeholder="District/City" name="city" id="city">
+      <div id="city-error" class="error-message"></div>
+  
+      <label>State</label>
+      <input type="text" placeholder="State" name="state" id="state">
+      <div id="state-error" class="error-message"></div>
+  
+      <label>Address Type</label>
+      <div class="addressTypeRadio">
+        <input type="radio" name="addressType" value="Home" id="homeRadio">
+        <label for="homeRadio">Home</label>
+  
+        <input type="radio" name="addressType" value="Work" id="workRadio">
+        <label for="workRadio">Work</label>
+  
+        <input type="radio" name="addressType" value="Others" id="othersRadio">
+        <label for="othersRadio">Others</label>
+      </div>
+      <div id="addressType-error" class="error-message"></div>
+  
+      <button type="submit" class="btn">Save New Address</button>
+    </form>
+  </div>
+  
+
+
+ <!-- -------------------------------------- -->
+     <!------------------------------- delete adress popup--------------------------------- -->
+
+     <div class="deleteFormPopup" id="deleteAdress">
+        <form action="/user/profile/addressBook/deleteAddress" method="post" class="form-container">
+         <input type="hidden" name="id"  id="addressDeleteId">
+         <div class="close-btn"><h4>Delete Address?</h4> </div>
+    
+         <div class="deleteAddress">  <button type="button" onclick="closeDeleteAddress()" class="btn">Close</button> 
+              <button type="submit"  class="btn">Delete Address</button> </div>
+  
+        </form>
+      </div>
+    <!-- ----------------------------------------------------------------------------------------------->
+
+  </div>
+
+
+   <script src="/javascript/add-address.js"></script>
+</body>
+</html>

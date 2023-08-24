@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-products</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin-products.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="admin-logo" href="/admin">Admin Panel</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item ">
+                    <a href="/admin/dashboard">Dashboard</a>
+                </li>
+                <li class="menu-item active">
+                    <a href="/admin/listProducts">Products</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/categories">Categories</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/orders">Orders</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/coupons">Coupons</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/listUsers">Customers</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/banners">Banners</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <nav>
+                <div class="container">
+                  <div class="navbar">
+                   
+                    <div class="navbar-buttons">
+                        <a href="/admin/addProduct" style="color: white;">
+                          <button class="addProduct-btn">Add product</button>
+                        </a>
+                        <a style="color: white;" href="/admin/logout">
+                          <button class="admin-logout-btn">Logout</button>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+            </nav>
+            <main>
+                <div class="container">
+                    <h1>Product Lists</h1>
+                    <div class="product-list">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Image</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>For</th>
+                                    <th>Price</th>
+                                    <th>Selling Price</th>
+                                    <th>Category</th>
+                                    <th>Brand</th>
+                                    <th>Stock</th>
+                                    <th>Size</th>
+                                    <th>colors</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                    <th></th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (typeof products !== 'undefined' && products.length > 0) {
+                                    for (let i = 0; i < products.length; i++) { %>
+                                    <tr>
+                                        <td><%= i + 1 %></td>
+                                        <td class="image">
+                                            <% if (products[i].images && products[i].images[0].contentType && products[i].images.length > 0) { %>
+                                              
+                                                <img src="data:<%= products[i].images[0].contentType %>;base64,<%= products[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                           
+                                            <% } else { %>
+                                                No Image
+                                            <% } %>
+                                        </td>
+                                        <td><%= products[i].title %></td>
+                                        <td><%= products[i].description%></td>
+                                        <td><%= products[i].For %></td>
+                                        <td><%= products[i].price %></td>
+                                        <td><%= products[i].saleprice%></td>
+                                        <td><%= products[i].category ? products[i].category.category : 'N/A' %></td>
+                                        <td><%= products[i].brand %></td>
+                                        <td><%= products[i].stock %></td>
+                                        <td><%= products[i].size %></td>
+                                        <td><%= products[i].color %></td>
+                                        <td><%= products[i].status %></td>
+                                        
+                                        
+                                        <td>
+                                                                           
+                                            <a href="/admin/editProduct?id=<%= products[i]._id%>"><button class="editProduct-btn" type="submit">Edit</button></a>
+                                          
+                                        </td>
+                                        <td>
+                                            <% if (products[i].status == "Active") { %>
+                                              <a href="/admin/deleteProduct?id=<%= products[i]._id %>&status=Blocked">
+                                                <button class="editProduct-btn" type="submit">Block</button>
+                                              </a>
+                                            <% } else { %>
+                                              <a href="/admin/deleteProduct?id=<%= products[i]._id %>&status=Active">
+                                                <button class="editProduct-btn" type="submit">Unblock</button>
+                                              </a>
+                                            <% } %>
+                                          </td>
+                                          
+                                    </tr>
+                                    <% }
+                                } else { %>
+                                    <tr>
+                                        <td colspan="7">Products not found</td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

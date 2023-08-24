@@ -1,0 +1,203 @@
+/* General Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .admin-panel {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    height: 800px;
+    position: fixed;
+  }
+  
+  .sidebar-header {
+    padding-bottom: 20px;
+  }
+  
+  .admin-logo {
+    font-weight: 600;
+    color: #f26422;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-item a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu-item a:hover {
+    background-color: #ddd;
+  }
+  
+  .menu-item.active a {
+    background-color: white;
+    color: #f26422;
+    border-radius: 5px;
+  }
+  
+  .content {
+  
+  display: flex;
+ margin-left: 18%;
+  margin-top: 4%;
+  
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    .admin-panel {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 20px 10px;
+    }
+  
+    .content {
+      padding: 20px 10px;
+    }
+  }
+  
+
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+  }
+  .left{
+    width: 500px;
+    
+   display: flex;
+   flex-direction: column;
+  
+  }
+
+  #loadDataButton{
+    border: none;
+    border-radius: 2px;
+    background-color: #f26422;
+    color: white;
+    font-size: 14px;
+    height: 30px;
+  }
+
+  #endDate,#startDate{
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 14px;
+    border: dotted 1px;
+  }
+
+  #dateRangeForm{
+ padding-left: 12%;
+ margin-bottom: 20px;
+ margin-top: 30px;
+  }
+
+.salesTable{
+ 
+margin-bottom: 50px;
+
+}
+
+  .salesTable th{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 10px;
+    color: white;
+    font-size: 14px;
+    background-color: #f26422;
+  }
+
+  .salesTable td{
+    text-align: left;
+    padding-left: 10px;
+    background-color: #d1c8c8;
+   padding: 5px;
+   border-bottom: solid 1px white;
+  }
+
+.monthlySalesTable{
+ 
+  margin-top: 60px;
+  
+ }
+ 
+   .monthlySalesTable th{
+     width: 200px;
+     text-align: left;
+     padding-left: 10px;
+     font-size: 14px;
+     font-weight: 600;
+     padding-top: 10px;
+    color: white;
+    font-size: 14px;
+     background-color:#f26422;
+   }
+ 
+   .monthlySalesTable td{
+     text-align: left;
+     padding-left: 10px;
+     background-color: #d1c8c8;
+     padding: 5px;
+     border-bottom: solid .5px white;
+   }
+
+   #selectedYear{
+   border: dotted 1px ;
+  
+   background-color: #d0c7c7;
+
+
+   }
+
+   .submit-btn{
+    border: none;
+    background-color: #f26422;
+    font-size: 14px;
+    margin-left: 10px;
+    color: white;
+ 
+   }
+
+   .filterWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+   }
+
+   .filterForm{
+    display: flex;
+   margin: 30px;
+   }
+   .dailyChartBorder{
+    border: dotted 1px;
+    margin-top: 20px;
+   }

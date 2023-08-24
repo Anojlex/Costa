@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/orderPlaced.css">
+   
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Kids">Kids</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shoes&Bags</a>
+                </li>
+               
+                <li class="nav-item ">
+                    <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                    <a class="nav-link" href="/user/logout">logout</a>
+                    <% }
+                    else { %>
+                        <a class="nav-link" href="/user/login">login</a>
+                   <% } %>
+                </li>
+            </ul>
+            
+        </div>
+        
+    </nav>
+    <div class="orderConfirm">
+        <div class="text">Thank you<span style="font-weight: 600;"> <%=orderPlaced.user.firstname %> <%= orderPlaced.user.lastname %></span>, for placing an order with us. Your order <span style="font-weight: 600;color: rgb(4, 4, 63);"><a href="/user/profile"><%= orderPlaced.orderId %></a></span> is confirmed
+            We expect to deliver your order by 08 Aug.</div>
+            <div class="backToShop"><a href="/costa"><button>&leftarrow;Back To Shop</button></a></div>
+        
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row mainRow">
+            <div class="col-lg-9">
+                <div class="leftDiv">
+                    <div class="col-md-9 cart-card">
+                        <div class="title">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 style="color: rgba(0, 0, 0, 0.658);"><b>Order Summary</b></h5>
+                                </div>
+                                <% if (typeof orderPlaced !== 'undefined' && orderPlaced.cart.length !== 0) { %>
+                                <div class="col align-self-center text-right text-muted">
+                                    <!-- Some content here -->
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                        <% let totalPrice = 0; %>
+                        <% let totalSalePrice = 0; %>
+                        <% for (let i = 0; i < orderPlaced.cart.length; i++) { %>
+                        <% totalPrice += orderPlaced.cart[i].price * orderPlaced.cart[i].quantity; %>
+                        <% totalSalePrice += orderPlaced.cart[i].broughtPrice * orderPlaced.cart[i].quantity; %>
+                        <div class="row  border-bottom mt-3">
+                            <div class="row main align-items-center">
+                                <div class="col-2">
+                                   <a href="/home/singleProduct?id=<%= orderPlaced.cart[i].product._id %>"><img class="img-fluid image"  src="data:<%= orderPlaced.cart[i].product.images[0].contentType %>;base64,<%= orderPlaced.cart[i].product.images[0].data.toString('base64') %>"
+                                        alt="Product Image"></a>
+                                </div>
+                                <div class="col">
+                                    <div class="row text-muted"><%= orderPlaced.cart[i].product.title %></div>
+                                    <div class="row"><%= orderPlaced.cart[i].product.description %></div>
+                                </div>
+                                <div class="col">
+                                    <!-- Some content here -->
+                                </div>
+                                <div class="price-and-btn">
+                                    <div class="priceText">
+                                        <div class="col-lg-1 price-info">&#8377; <%= orderPlaced.cart[i].broughtPrice %><span class="close"></span></div>
+                                        <div style="text-decoration: line-through;" class="col-lg-1 price-info">&#8377; <%= orderPlaced.cart[i].price %> <span class="close">&#10005;</span></div>
+                                        <div class="col-lg-1 price-info"> <%= Math.floor((orderPlaced.cart[i].price - orderPlaced.cart[i].broughtPrice * 100 / orderPlaced.cart[i].price)) %>%off</div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="rightDiv">
+                    <div class="summary">
+                        <% if (typeof totalPrice !== 'undefined' && typeof totalSalePrice !== 'undefined') { %>
+                        <div class="mt-2">
+                            <h6><b>Order Details</b></h6>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">Bag Total</div>
+                            <div class="col text-right">&#8377; <%= totalPrice %></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Bag Discount</div>
+                            <div class="col text-right">&#8377;<%= totalPrice - totalSalePrice %></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Coupon Saving </div>
+                            <div class="col text-right">&#8377;<%= orderPlaced.couponSaving %></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Delivery Fee</div>
+                            <div class="col text-right">&#8377;<span style="text-decoration: line-through;">99 </span><span
+                                    style="color: green;font-weight: 600;">Free</span></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Order Total</div>
+                            <div class="col text-right">&#8377; <%= orderPlaced.broughtPrice %></div>
+                        </div>
+                        <% } else { %>
+                        <div>Empty</div>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="address-card">                    
+                    <div class="name"><%= orderPlaced.shippingAddress.name %></div>
+                    <div class="house"><%= orderPlaced.shippingAddress.buildingName %>,<%= orderPlaced.shippingAddress.locality %></div>
+                    <div class="landmark"> <%= orderPlaced.shippingAddress.landmark %></div>
+                    <div class="district"><%= orderPlaced.shippingAddress.city %>,<%= orderPlaced.shippingAddress.state %></div>
+                    <div class="pincode">India-<%= orderPlaced.shippingAddress.pincode %></div>
+                    <div><p >Phone:<span class="phone"><%= orderPlaced.shippingAddress.mobile %></span></p></div>                             
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+  
+
+
+
+
+
+
+
+
+<script src="/javascript/paymentOptions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

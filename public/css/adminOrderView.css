@@ -1,0 +1,316 @@
+/* General Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .navbar{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 7%;
+  }
+  .navbar button{
+background-color: transparent;
+color: rgb(26, 15, 57);
+font-size: 140x;
+text-decoration: underline;
+margin-right: 20px;
+border: none;
+  }
+
+  .navbar button:hover{
+   
+    color: #f26422;
+  }
+  .admin-panel {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    height: 800px;
+    position: fixed;
+  }
+  
+  .sidebar-header {
+    padding-bottom: 20px;
+  }
+  
+  .admin-logo {
+    font-weight: 600;
+    color: #f26422;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-item a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu-item a:hover {
+    background-color: #ddd;
+  }
+  
+  .menu-item.active a {
+    background-color: #ffffff;
+    color: #f26422;
+  
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 20%;
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    .admin-panel {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 20px 10px;
+    }
+  
+    .content {
+      padding: 20px 10px;
+      
+    }
+  }
+  
+  .leftDiv{
+    width: 100%;
+ height: 100%;
+
+}
+.rightDiv{
+    width: 100%;
+    height: fit-content;
+    border: 1px dotted rgba(0, 0, 0, 0.786);
+  
+    padding: 30px;
+    font-size: 16px;
+ 
+    color: #000000ba;
+  
+}
+.rightDivTop{
+    width: 100%;
+    height: fit-content;
+    border: 1px dotted rgba(0, 0, 0, 0.786);
+  
+    padding: 20px;
+    font-size: 16px;
+    background-color: #ee8e61ee;
+    color: #000000ba;
+    margin-top: 2%;
+}
+.container {
+    margin-top: 20px;
+}
+
+.main{
+  height: 200px;
+  
+}
+
+
+
+
+.priceText {
+    display: flex;
+    width: 200px;
+}
+
+.price-info {
+    width: fit-content;
+}
+
+.price-and-btn {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+
+/* Styles for buttons and links */
+.btn {
+    background-color: #fefefe;
+    border-color: #f26422;
+    color: #f26422;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 2px;
+    height: 38px;
+}
+
+
+.orderConfirm{
+    display: flex;
+    width: 100%;
+    height: 60px;
+   
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    color: rgb(66, 61, 61);
+    margin-top: 20px;
+}
+
+.text{
+    padding-left: 50px;
+    padding-right: 50px;
+font-size: 14px;
+
+}
+
+.address-card {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;  
+    cursor:pointer;
+    border: 1px dotted;
+    width: 100%;
+    margin-top: 10px;
+  
+ 
+}
+
+.name{
+    font-weight: 700;
+    margin-top: 20px;
+}
+.phone{
+    font-weight: 700;
+}
+
+.image{
+    width: 80%;
+    height: auto;
+    border: 5px solid white;
+}
+body{
+    font-family:'lora','serif';
+   
+}
+
+.status{
+    margin-left: 6px;
+    font-size: 14px;
+    text-align: left;
+}
+.description{
+font-size: 14px;
+text-align: left;
+padding-left: 11px;
+}
+.price{
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+
+}
+.size{
+font-size: 14px;
+text-align: left;
+
+}
+
+.estimatedDelivery{
+    font-size: 12px;
+    text-align: left;
+    text-align: left;
+}
+
+.cancelOrder{
+   display: flex;
+   margin-top: auto;
+   justify-content: end;
+  
+  
+
+}
+.cancelOrder a{
+    margin-top: auto;
+    font-size: 14px;
+    color: rgb(9, 9, 57);
+
+}
+.cancelOrder:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #f26422;
+}
+
+.cancelOrderPopup{
+    width: 350px;
+    height: 190px;
+    display: none;
+    position: fixed;
+    background-color: white;
+    border-radius: 2px;
+    border: 3px solid #f1f1f1;
+    z-index: 999;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    bottom: 40%;
+    left: 40%;
+    font-size: 16px;
+    padding: 16px;
+    padding-top: 50px;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+    z-index: 99;
+  }
+  
+
+.buttons{
+    display: flex;
+    margin-top: 60px;
+}
+.buttons button{
+    width:50%;
+    height: 40px;
+    background-color: #f45e18da;
+    color: white;
+    border: solid 1px white;
+    font-size: 14px;
+    border-radius: 2px;
+   
+}
+

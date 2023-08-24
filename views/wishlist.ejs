@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/wishlist.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/user/profile"><img class="wishlist" src="/images/icons8-user-30.png" ></a>
+                </li>
+               
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home/cart"><img class="cart" src="/images/icons8-cart-30.png" ></a>
+                </li>
+                <li class="nav-item ">
+                    <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                    <a class="nav-link" href="/user/logout">logout</a>
+                    <% }
+                    else { %>
+                        <a class="nav-link" href="/user/login">login</a>
+                   <% } %>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+       
+        <% if(typeof wishlist!=='undefined'){ %>
+            <div class="col-lg-11">
+                <div class="content">
+                    <% if(wishlist.length==0){ %>
+                        <div class="col" style="text-align: center;"><h4>Your Wishlist is Empty .Add products now...</h4></div>
+                        <%} else {%>
+                            <div class="wishlistText" >Wishlist</div>
+                        <%}%>
+                
+                    <div class="row">
+                        <% for (let i = 0; i < wishlist.length; i++) { %>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="box_main">
+                                    <div class="tshirt_img">
+                                        <a href="/home/singleProduct?id=<%= wishlist[i].product._id %>">
+                                       
+                                            <img src="data:<%= wishlist[i].product.images[0].contentType %>;base64,<%= wishlist[i].product.images[0].data.toString('base64') %>" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <h4 class="shirt_text"><%= wishlist[i].product.title %></h4>
+                                    <div class="product-tile">
+                                        <p class="sale-price_text">&#8377;<%= wishlist[i].product.saleprice %></p>
+                                        <p class="price_text">&#8377;<%= wishlist[i].product.price %></p>
+                                        <p class="discount-price"><%= Math.floor((wishlist[i].product.price - wishlist[i].product.saleprice) * 100 / wishlist[i].product.price) %>% off</p>
+                                        <div class="wishlist-heart"><a onclick="moveToCart('<%= wishlist[i].product._id %>')"><img src="/images/icons8-shopping-cart-30-new.png" alt="Move To Cart"></a></div>
+                                        <div class="wishlist-heart"><a href="#"  onclick="removeFromWishlist('<%= wishlist[i].product._id %>')"><img src="/images/icons8-cancel-24.png" alt="Remove"></a></div>
+                                        <div id="movedText"></div>
+                                    </div>
+                                  
+                                    
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    
+                </div>
+            </div>
+            <%}%>
+     
+    </div>
+<script>
+    const moveToCart=async(productId)=>{
+    const movedToCart=document.getElementById('movedText')
+        
+        const response = await fetch('/home/wishlist/moveToCart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId:productId }),
+        });
+
+        if (response.ok) {
+
+           movedToCart.innertext="Moved to Cart"
+           setTimeout(()=>{
+            movedToCart.innertext=""
+            location.reload()
+           },1200)
+
+        } else {
+            console.error('Error loading sales report:', response.statusText);
+        }
+    }
+
+    const removeFromWishlist=async(productId)=>{
+        const movedToCart=document.getElementById('movedText')
+        
+        const response = await fetch('/home/wishlist/removeFromWishlist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId:productId }),
+        });
+
+        if (response.ok) {
+
+           movedToCart.innertext="Removed from Wishlist"
+           setTimeout(()=>{
+            movedToCart.innertext=""
+            location.reload()
+           },1200)
+
+        } else {
+            console.error('Error loading sales report:', response.statusText);
+        }
+    }
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

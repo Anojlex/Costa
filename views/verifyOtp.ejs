@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification-COSTA</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/verifyOtp.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kids</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shoes&Bags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="otp-verification-popup">
+        <div id="otp-verification-form">
+            <form class="otp-verification-form" id="otp-verification-form-v" method="post" action="/user/verifyotp">
+                <h1>C.O.S.T.A</h1>
+                <h3>OTP Verification</h3>
+            
+                <div class="otp-input"><input id="otp" type="text" name="otp" placeholder="Enter OTP"></div>
+                <div id="otp-error" class="error-message"></div>
+                <div class="errordata" >
+                    <% if (typeof errordata !== 'undefined') { %>
+                        <p style="color: rgba(208, 41, 12, 0.874); font-size: medium;"><%= errordata %></p>
+                    <% } %>
+                </div> 
+                <div class="otp-input"><button class="verify-otp" type="submit">Verify OTP</button></div>
+                <div class="resend-otp">Didn't receive OTP? <a href="#">Resend OTP</a></div>
+                <a href="#">Change Phone Number</a>
+            </form>
+        </div>
+    </div>
+    <script src="/javascript/verifyotp-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

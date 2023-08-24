@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-COSTA</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/adminLogin.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/admin">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       
+    </nav>
+
+    <div id="signup-popup">
+        <div id="signup-form">
+            <form id="adminLogin" class="signup-form-" action="/admin/login" method="post">
+                <h1>C.O.S.T.A</h1>
+                <h3>Admin</h3>
+               
+                <div ><input class="signup-input"  id="username"  type="text" name="username" placeholder="Username"></div>
+                <div id="username-error" class="error-message"></div>
+                <div ><input class="signup-input"   id="password" type="password" name="password" placeholder="Password"></div>
+                <div id="password-error" class="error-message"></div>
+                <% if(typeof message !== 'undefined'){ %>
+                    <div class="errordata"><p><%= message %></p></div>
+                    <% } %>
+               <button type="submit"  class="signup">Login</button>
+                
+                
+                
+            </form>
+        </div>
+    </div>
+    <script src="/javascript/adminLoginValidation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

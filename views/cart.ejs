@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Kids">Kids</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Shoes&Bags</a>
+                </li>
+                <li class="nav-item ">
+                    
+                    <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(4).png" ></a>
+                </li>
+               
+                <li class="nav-item ">
+                    <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                    <a class="nav-link" href="/user/logout">logout</a>
+                    <% }
+                    else { %>
+                        <a class="nav-link" href="/user/login">login</a>
+                   <% } %>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <% if(typeof product!=='undefined'||product.cart.length!==0){ %>
+    <div class="card">
+        <div class="row cart-card-row">
+            <div class="col-md-9 cart-card">
+                <div class="title">
+                    <div class="row">
+                        <% if(product.cart.length==0){ %>
+                        <div class="col" style="text-align: center;"><h4>Your Cart is Empty .Add products now...</h4></div>
+                        <%} else {%>
+                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                        <%}%>
+                        <% if(product.cart.length>0){ %>
+                            <div class="col align-self-center text-right text-muted"><%= product.cart.length %>  items in Bag</div>
+                            <%}%>
+                       
+                    </div>
+                </div>    
+                <div  style="text-align: center; color: red;font-size: 12px;"  id="quantityError"></div>
+                <% let totalPrice=0 %>
+                <% let totalSalePrice=0 %>
+                    <% for(let i=0;i<product.cart.length;i++){ %>
+                        <% totalPrice+=(product.cart[i].product.price*product.cart[i].quantity) %>
+                        <% totalSalePrice+=(product.cart[i].product.saleprice*product.cart[i].quantity) %>
+
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        
+                                        
+                        <div class="col-2"><a href="/home/singleProduct?id=<%= product.cart[i].product._id %>"><img class="img-fluid image-thumbnail"src="data:<%= product.cart[i].product.images[0].contentType %>;base64,<%= product.cart[i].product.images[0].data.toString('base64') %>" alt="Product Image"></a></div>
+                        <div class="col">
+                        <div class="row text-muted"><%= product.cart[i].product.title %> </div>
+                            <div class="row"><%= product.cart[i].product.description %> </div>
+                        </div>
+                        <div class="col">
+                          
+                                <div class="quantity-controls">
+                                    <button class="plusAndMinus" data-value="dec" data-cartid="<%= product.cart[i]._id%>" data-productid="<%= product.cart[i].product._id %>">-</button>
+                                    <span class="border"><%= product.cart[i].quantity%></span>
+                                    <button class="plusAndMinus" data-value="inc" data-cartid="<%= product.cart[i]._id%>" data-productid="<%= product.cart[i].product._id %>">+</button>
+                                  </div>
+                              
+                            
+                          </div>
+                        
+                        <div class="price-and-btn">
+                            <div class="priceText">
+                              <div class="col-lg-1 price-info">&#8377; <%= product.cart[i].product.saleprice %><span class="close"></span></div>
+                              <div style="text-decoration: line-through;" class="col-lg-1 price-info">&#8377; <%= product.cart[i].product.price %> <span class="close">&#10005;</span></div>
+                              <div class="col-lg-1 price-info"> <%= Math.floor((product.cart[i].product.price-product.cart[i].product.saleprice)*100/product.cart[i].product.price) %>%off</div>
+                           </div>
+                        <div class="button-wrap">
+                           <a href="/home/cart/remove?id=<%= product.cart[i].product._id %>"><button class="btn-remove">Remove</button></a>
+                            <a href="/home/cart/wishlist?id=<%= product.cart[i].product._id %>"><button class="btn-addtowishlist">Wishlist</button></a>
+                        </div>
+                        <div class="loader" id="loader"><img src="/images/icons8-dots-loading.gif"></div>
+                        <div class="added-to-wishlist-message" id="addedToWishlistMsg">Added to Wishlist</div>
+                       </div>
+                    </div>
+                 </div>   
+                
+                 <% } %>
+            
+            </div>
+              
+            <% if(product.cart.length>0){%>
+            <div class="col-md-3 summary">
+                <div><h5><b>Order Details</b></h5></div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Bag Total</div>
+                    
+                    <div class="col text-right">&#8377;<%= totalPrice %> </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Bag Savings</div>
+                    
+                    <div class="col text-right">&#8377;<%= totalPrice-totalSalePrice %></div>
+                </div>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Coupon savings</div>
+                    
+                    <div class="col text-right" id="couponSaving">0.00</div>
+                </div>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Delivery Fee</div>
+                    
+                    <div  class="col text-right">&#8377; <span style="text-decoration: line-through"> 99</span><span style="color: green;"> Free</span></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col" style="padding-left:0;">Total Payable</div>
+                    
+                    <div class="col text-right" id="totalSalePrice"><%= totalSalePrice %></div>
+
+                </div>
+                <a id="checkoutButton" class="btn">CHECKOUT</a>
+               
+               
+<div style="margin-top: 30px; text-align: center;"><h6>Select Coupon</h6></div>
+<div style="color: green; font-size: 12px; text-align: center;" id="couponMessage"></div>
+<div style="color: rgb(188, 29, 8); font-size: 12px; text-align: center;" id="couponMessagefail"></div>
+
+<div class="row">
+    <div class="coupon_container">
+        <div>
+            <input type="radio" value="" name="SelectedCoupon" id="noCoupon">
+            <label for="noCoupon">No Coupon</label>
+          </div>
+        <% if (typeof coupons !== 'undefined') { %>
+            <% for (let i = 0; i < coupons.length; i++) { %>
+                <div style="margin-top: 20px;">
+                    <div>
+                        <input type="radio" value="<%= coupons[i]._id %>" name="SelectedCoupon">
+                        <label><%= coupons[i].code %></label>
+                    </div>
+                    <div class="coupondiscription">
+                        Apply <%= coupons[i].code %> to get <%= coupons[i].percentage %>% off. Min Purchase-&#8377;<%= coupons[i].minpurchase %>.Max discount-<%=coupons[i].maxAmount%>
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+
+
+                
+            </div>
+            <%}%>
+        </div>
+        
+       
+          <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const couponRadios = document.querySelectorAll('input[name="SelectedCoupon"]');
+            const couponMessageSuccess = document.getElementById('couponMessage');
+            const couponMessageFail = document.getElementById('couponMessagefail');
+            const checkoutButton = document.getElementById('checkoutButton');
+            const totalSalePriceElement = document.getElementById('totalSalePrice');
+            const couponSavingElement = document.getElementById('couponSaving');
+            let newTotalSalePrice = <%= totalSalePrice %>; // Initialize with the initial total sale price
+            
+            const totalPrice = <%= totalSalePrice %>; // Replace with your totalSalePrice value
+            
+            couponRadios.forEach(radio => {
+                radio.addEventListener('change', async () => {
+                    const selectedCouponId = radio.id === 'noCoupon' ? null : radio.value;
+                    
+                    const response = await fetch('/home/cart/validate-coupon', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ purchaseValue: totalPrice, couponId: selectedCouponId })
+                    });
+            
+                    const result = await response.json();
+                
+                    if (result.valid) {
+                        let couponSaving=0
+                        const maxAmount=result.maxAmount
+                 
+                        newTotalSalePrice = Math.ceil(totalPrice - (totalPrice * (result.couponPercentage / 100)));
+                       
+                         couponSaving =Math.ceil( totalPrice - newTotalSalePrice)
+                        if(couponSaving>maxAmount){
+                        couponSaving=maxAmount
+                        newTotalSalePrice=totalPrice-couponSaving
+                        }
+                        totalSalePriceElement.innerText = `${newTotalSalePrice.toFixed(2)}`;
+                        couponSavingElement.innerText = couponSaving.toFixed(2); // Update the coupon saving value
+                        couponMessageFail.textContent = "";
+                        couponMessageSuccess.textContent = 'Coupon applied successfully!';
+                       
+                    } else {
+                        couponSavingElement.innerText = '0.00'; // Reset coupon saving value
+                        totalSalePriceElement.innerText = totalPrice;
+                        couponMessageSuccess.textContent = "";
+                        couponMessageFail.textContent = result.message;
+                        
+                    }
+                });
+            });
+            
+            checkoutButton.addEventListener('click', () => {
+                let redirectUrl = `/home/cart/selectaddress`;
+            
+                const selectedCouponRadio = document.querySelector('input[name="SelectedCoupon"]:checked');
+                if (selectedCouponRadio) {
+                    const selectedCouponId = selectedCouponRadio.value;
+                    redirectUrl += `?couponId=${selectedCouponId}&newPrice=${newTotalSalePrice.toFixed(2)}`;
+                }
+
+                
+            
+                window.location.href = redirectUrl;
+            });
+        });
+    </script>        
+         <% } else{ %>
+            <div class="empty-cart-message">
+                <p>Your Cart is Empty. Add items to Cart Now....</p>
+            </div>
+            <% } %>
+        </div>
+<script src="/javascript/addToWishlist-fromcart.js"></script>
+<script src="/javascript/changeQuantity.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

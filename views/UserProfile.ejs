@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User | COSTA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/userProfile.css">
+    <style>
+        /* Add any additional custom styles here if needed */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Add 'active' class to the active link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=Women">Women</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(3).png"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home/cart"><img class="carticon" src="/images/icons8-cart-30.png"></a>
+                </li>
+                <li class="nav-item">
+                    <!-- Add a logout/login link here based on user login status -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="col-md-2">
+            <div class="leftDiv">
+              <div class="myAccount">  <h4 >My Account</h4></div>
+                <ul>
+                    <li><a href="/user/Profile"><span style="color:#f26422 ;">Orders</span></a></li>
+                    <hr style="width: 85%; color: rgba(0, 0, 0, 0.323);">
+                    <li><h6>Profile</h6></li>
+                    <li><a  href="/user/profile/personalInfo">Personal Information</a></li>
+                    <li><a href="/user/profile/addressBook">Address Book</a></li>
+                    <li><a href="/user/profile/wallet">Wallet</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="rightDiv">
+                <h4>My Orders</h4>
+                <p>Track your open orders & view the summary of your past orders</p>
+                <% for (let i = 0; i < orders.length; i++) { %>
+                    <% if (orders[i].cart.length > 0 && orders[i].cart[0].product) { %>
+                    <div class="orderId">Order Id:<%= orders[i].orderId %></div>
+                    <a  class="cardLink" href="/user/profile/orderDetails?orderId=<%= orders[i].orderId %>"><div class="order-card">
+                      
+                        <div class="image-card">
+                          
+                          <img class="img-fluid image" src="data:<%= orders[i].cart[0].product.images[0].contentType %>;base64,<%= orders[i].cart[0].product.images[0].data.toString('base64') %>">
+                        </div>
+                      <% } %>
+                      <div class="status">
+                        <% if (orders[i].status === "Cancelled") { %>
+                            <div  class="statusText" style="color: rgba(255, 0, 0, 0.523);"></div>
+                          <% } else { %>
+                            <div class="statusText"></div>
+                          <% } %>
+                     
+                        <div class="estimatedDelivery">Estimated Delivery Tue,08 Aug</div>
+                        <div class="paymentMode"><%= orders[i].paymentMode %></div>
+                      </div>
+                      <div class="arrow">
+                        <img src="/images/icons8-next-24.png">
+                      </div>
+                    </div></a>
+                  <% } %>
+                  
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

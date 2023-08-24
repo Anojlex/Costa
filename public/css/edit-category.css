@@ -1,0 +1,169 @@
+/* General Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .admin-panel {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    height: 800px;
+  }
+  
+  .sidebar-header {
+    padding-bottom: 20px;
+  }
+  
+  .admin-logo {
+    font-weight: 600;
+    color: #f26422;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-item a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu-item a:hover {
+    background-color: #ddd;
+  }
+  
+  .menu-item.active a {
+    background-color: white;
+      color: #f26422;
+      border-radius: 5px;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    .admin-panel {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 20px 10px;
+    }
+  
+    .content {
+      padding: 20px 10px;
+    }
+  }
+  
+  
+  #signup-popup {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+  }
+  
+  #signup-form {
+    width: 420px;
+    max-width: 100%;
+    background-color: #c2bdbdad;
+    padding: 20px;
+    border-radius: 9px;
+  
+    text-align: center;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+  @media (max-width: 576px) {
+    #signup-form {
+      width: 100%;
+    }
+  }
+  #signup-form h2 {
+    color: #333;
+  }
+  
+  #signup-form form {
+    margin-top: 20px;
+  }
+  
+  #signup-form input[type="text"]
+  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    border-radius: 12px;
+    
+  }
+  
+  #signup-form button.signup {
+    width: 100%;
+    padding: 10px;
+    background-color: #f26422e7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #signup-form a {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #signup-form a:hover {
+    text-decoration: underline;
+    color: #f26422;
+  }
+  .nav-link :hover {
+  
+    color: #f26422;
+  }
+  
+  
+  .coupon-label{
+    margin-top: 15px;
+    text-align: left;
+  }
+  .dropdown{
+    width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: none;
+border-radius: 12px;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+

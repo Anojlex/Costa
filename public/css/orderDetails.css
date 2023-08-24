@@ -1,0 +1,312 @@
+
+.nav-item {
+    position: relative; 
+}
+.nav-my-links {
+
+    margin-left: 60%; 
+}
+
+.outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; 
+    height: 85px;
+    box-shadow: 0px 15px 18px rgba(83, 81, 81, 0.13);
+    
+}
+
+.costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; 
+    font-size: 24px; 
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    color: #f26422; 
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+
+
+@media (max-width: 992px) {
+    .nav-my-links {
+        margin-left: 0;
+    }
+
+    .outer-nav {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .product-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.leftDiv{
+    width: 100%;
+ height: 100%;
+ /* border: 1px solid rgba(0, 0, 0, 0.295); */
+}
+.rightDiv{
+    width: 100%;
+    height: fit-content;
+    border: 1px dotted rgba(0, 0, 0, 0.786);
+  
+    padding: 20px;
+    font-size: 14px;
+ 
+    color: #000000ba;
+  
+}
+.rightDivTop{
+    width: 100%;
+    height: fit-content;
+    border: 1px dotted rgba(0, 0, 0, 0.786);
+  
+    padding: 20px;
+    font-size: 14px;
+    background-color: #ee8e61ee;
+    color: #000000ba;
+}
+.container {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+.priceText {
+    display: flex;
+    width: 200px;
+}
+
+.price-info {
+    width: fit-content;
+}
+
+.price-and-btn {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+
+/* Styles for buttons and links */
+.btn {
+    background-color: #fefefe;
+    border-color: #f26422;
+    color: #f26422;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 2px;
+    height: 38px;
+}
+
+
+.orderConfirm{
+    display: flex;
+    width: 100%;
+    height: 60px;
+   
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    color: rgb(66, 61, 61);
+    margin-top: 20px;
+}
+
+.text{
+    padding-left: 50px;
+    padding-right: 50px;
+font-size: 14px;
+
+}
+.orderConfirm button{
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: rgb(2, 2, 19);
+    margin-left: 60px;
+}
+.orderConfirm button:hover{
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+.address-card {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;  
+    cursor:pointer;
+    border: 1px dotted;
+    width: 100%;
+    margin-top: 10px;
+  
+ 
+}
+
+.name{
+    font-weight: 700;
+    margin-top: 20px;
+}
+.phone{
+    font-weight: 700;
+}
+
+.image{
+    width: 80%;
+    height: auto;
+    border: 5px solid white;
+}
+body{
+    font-family:'lora','serif';
+   
+}
+
+.status{
+    margin-left: 6px;
+    font-size: 14px;
+    text-align: left;
+}
+.description{
+font-size: 14px;
+text-align: left;
+padding-left: 11px;
+}
+.price{
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+}
+.size{
+font-size: 14px;
+text-align: left;
+
+}
+
+.estimatedDelivery{
+    font-size: 12px;
+    text-align: left;
+    text-align: left;
+}
+
+.cancelOrder{
+   display: flex;
+   margin-top: auto;
+   justify-content: end;
+  
+  
+
+}
+.cancelOrder a{
+    margin-top: auto;
+    font-size: 14px;
+    color: rgb(9, 9, 57);
+
+}
+.cancelOrder:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    color: #f26422;
+}
+
+.cancelOrderPopup{
+    width: 350px;
+    height: 190px;
+    display: none;
+    position: fixed;
+    background-color: white;
+    border-radius: 2px;
+    border: 3px solid #f1f1f1;
+    z-index: 999;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    bottom: 40%;
+    left: 40%;
+    font-size: 16px;
+    padding: 16px;
+    padding-top: 50px;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+    z-index: 99;
+  }
+  
+
+.buttons{
+    display: flex;
+    margin-top: 60px;
+}
+.buttons button{
+    width:50%;
+    height: 40px;
+    background-color: #f45e18da;
+    color: white;
+    border: solid 1px white;
+    font-size: 14px;
+    border-radius: 2px;
+   
+}
+
+
+.modeOfRefundPopup{
+    width: 350px;
+    height: 245px;
+    display: none;
+    position: fixed;
+    background-color: white;
+    border-radius: 2px;
+    border: 3px solid #f1f1f1;
+    z-index: 999;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    bottom: 40%;
+    left: 40%;
+    font-size: 16px;
+   
+}
+.refundform label{
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.refundform input{
+    margin-left: 19px;
+}
+
+.cancelButton{
+    background-color: transparent;
+    border: none;
+
+}
+.cancelButton:hover{
+    color: red;
+    text-decoration: underline;
+}

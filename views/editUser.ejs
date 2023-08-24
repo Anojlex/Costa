@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-COSTA</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/editUser.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+       
+    </nav>
+
+    <div id="signup-popup">
+        <div id="signup-form">
+            <form class="signup-form" id="signup-form-v" method="post" action="/admin/updateUser">
+                <h1>C.O.S.T.A</h1>
+                <h3>Edit User</h3>
+           
+                <% if (typeof user !== 'undefined') { %>                            
+             
+                <div class="signup-input">
+                    <input id="name" type="text" name="name" value="<%= user.name %>"  placeholder="<%= user.name %>">
+                    <div id="name-error" class="error-message"></div>
+                </div>
+              
+                <div class="signup-input">
+                    <input id="email" type="email" name="email" value="<%= user.email %>" placeholder="<%= user.email %>">
+                    <div id="email-error" class="error-message"></div>
+                </div>
+               
+                <div class="signup-input">
+                    <input id="mobile" type="text" name="mobile" value="<%= user.mobile %>" placeholder="<%= user.mobile %>">
+                    <div id="mobile-error" class="error-message"></div>
+                </div>
+              
+                <div class="signup-input">
+                    <input id="password" type="password" name="password" value="user.password" placeholder="Password">
+                    <div id="password-error" class="error-message"></div>
+                </div>
+                <input type="hidden" value="<%= user._id %>" name="id" >
+                <div class="signup-input"><button class="signup" type="submit">Save Changes</button></div>
+                
+                <% } %>
+            </form>
+        </div>
+    </div>
+   
+    <script src="/javascript/editUser-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

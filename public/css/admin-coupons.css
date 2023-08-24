@@ -1,0 +1,216 @@
+/* General Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .admin-panel {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    height: 800px;
+    position: fixed;
+  }
+  
+  .sidebar-header {
+    padding-bottom: 20px;
+  }
+  
+  .admin-logo {
+    font-weight: 600;
+    color: #f26422;
+    font-size: 24px;
+    text-decoration: none;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-item a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu-item a:hover {
+    background-color: #ddd;
+  }
+  
+  .menu-item.active a {
+   background-color: white;
+    color:#f26422;
+   
+  }
+  
+  .content {
+ 
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    margin-left: 17%;
+
+justify-content: center;
+    
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    .admin-panel {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 20px 10px;
+    }
+  
+    .content {
+      padding: 20px 10px;
+    }
+  }
+  
+
+  #signup-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #signup-form {
+    width: 300px;
+    max-width: 100%;
+  font-size: 14px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-left: 50px;
+   
+   
+  }
+  @media (max-width: 576px) {
+    #signup-form {
+      width: 100%;
+    }
+  }
+  #signup-form h2 {
+    color: #333;
+  }
+  
+  #signup-form form {
+    margin-top: 20px;
+  }
+  
+  #signup-form input[type="text"]
+  {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.414);
+    outline: none;
+  }
+  
+  #signup-form button.signup {
+    width: 100%;
+    padding: 10px;
+    background-color: #f26422e7;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  #signup-form a {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #signup-form a:hover {
+    text-decoration: underline;
+    color: #f26422;
+  }
+  .nav-link :hover {
+  
+    color: #f26422;
+  }
+  .signup-input-date{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    border-radius: 12px;
+  }
+  .coupon-label{
+    margin-top: 15px;
+    text-align: left;
+  }
+
+  
+.banner-table{
+ 
+  border: 1px dotted;
+  margin-top: 15%;
+  font-size: 14px;
+}
+.banner-table th{
+  background-color: #ada9a9;
+  width:120px;
+  text-align: center;
+  color: #171414ec;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 10px;
+}
+.banner-table tr{
+  width: auto;
+  height: auto;
+  background-color:#f1f1f1;
+  margin-top: 2px;
+  border-bottom: 3px solid white;
+  
+}
+.banner-table img{
+  width: 80%;
+}
+.banner-table button{
+  background-color: transparent;
+  color: #050549;
+  border: none;
+  margin-left: auto;
+}
+
+.banner-table #Sno{
+  width:100px
+}
+
+.banner-table td{
+  text-align: center;
+}
+
+.error-message{
+  text-align: left;
+  color: rgba(255, 0, 0, 0.841);
+  font-size: 12px;
+}
+.status,.action{
+  width: 40px;
+}

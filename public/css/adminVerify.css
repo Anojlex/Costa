@@ -1,0 +1,117 @@
+#otp-verification-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #otp-verification-form {
+    width: 420px;
+    max-width: 100%;
+    background-color: #c2bdbde3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  @media (max-width: 576px) {
+    #otp-verification-form {
+      width: 100%;
+    }
+  }
+  
+  #otp-verification-form h2 {
+    color: #333;
+  }
+  
+  #otp-verification-form form {
+    margin-top: 20px;
+  }
+  
+  #otp-verification-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 12px;
+  }
+  
+  #otp-verification-form button.verify-otp {
+    width: 100%;
+    padding: 10px;
+    background-color: #f26422e7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  
+  #otp-verification-form a {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #otp-verification-form a:hover {
+    text-decoration: underline;
+    color: #f26422;
+  }
+  
+  .forgot {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .otp-input {
+    margin-top: 20px;
+  }
+  
+  .nav-my-links {
+    margin-left: 60%; /* Push the links to the right */
+  }
+  
+  .outer-nav {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #dad5d5; /* Add background color to the navbar */
+  }
+  
+  .costa-logo {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #f26422; /* Change the logo color */
+    font-size: 24px; /* Increase the logo font size */
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: #f26422; /* Change the active link color */
+  }
+  
+  .navbar-nav .nav-link {
+    color: #333;
+  }
+  
+  @media (max-width: 576px) {
+    .signup-form-p {
+      margin-top: 10px;
+    }
+  
+    .signup-input input {
+      width: 100%;
+    }
+  }
+  
+  .errordata {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .cancel-icon {
+    width: 40px;
+    height: 40px;
+  }
+  

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin||Banners</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Normalize CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<!-- Cropper CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
+<!-- Cropper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
+    <link rel="stylesheet" href="/css/admin-banners.css">
+
+</head>
+
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <a class="admin-logo" href="/admin">Admin Panel</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item ">
+                    <a href="/admin/dashboard">Dashboard</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/listProducts">Products</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/categories">Categories</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/orders">Orders</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/coupons">Coupons</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/listUsers">Customers</a>
+                </li>
+                <li class="menu-item active">
+                    <a href="/admin/banners">Banners</a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="uploadForm">
+                <form action="/admin/banners" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="bannerImage">Select Banner Images</label>
+                        <input type="file" id="bannerImage" name="images" multiple accept="image/*" required> <button
+                            id="clearSelectionBtn">Clear Selection</button>
+                        <div class="preview-container">
+                            
+                        </div>
+                    </div>
+
+
+                    <button type="submit" id="uploadBtn" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+
+            <div class="container">
+                <div class="bannerTable">
+                    <table class="banner-table">
+                        <thead>
+                            <tr>
+                                <th id="Sno">S.No</th>
+                                <th>Banner</th>
+                                <th>Status</th>
+                                <th>Actions</th>                              
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (typeof banners !=='undefined' && banners.length> 0) {
+                                for (let i = 0; i < banners.length; i++) { %>
+                                    <tr>
+                                        <td>
+                                            <%= [i+1] %>
+                                        </td>
+                                        <td>
+                                            <div class="bannerImage">
+                                                <% if (banners[i].images && banners[i].images.contentType) { %>
+                                                    <img src="data:<%= banners[i].images.contentType %>;base64,<%= banners[i].images.data.toString('base64') %>"
+                                                        alt="Product Image">
+                                                    <% } else { %>
+                                                        No Image
+                                                        <% } %>
+                                            </div>
+                                        </td>
+
+
+                                        <% if(banners[i].status=="display" ){%>
+                                            <td>
+                                               <p style="color: green; margin-top: 10px;">Active</p> 
+                                            </td>
+                                            <%} else {%>
+                                                <td>
+                                                    <p style="color: red;">Hidden</p> 
+                                                 
+                                                </td>
+                                                <%}%>
+
+
+                                                    <% if(banners[i].status=="display" ){%>
+                                                        <td>
+                                                            <a href="/admin/hideBanner?bannerId=<%= banners[i]._id %>">
+                                                                <button class="delete-btn">Hide</button></a>
+                                                        </td>
+                                                        <%} else {%>
+                                                            <td>
+                                                                <a
+                                                                    href="/admin/activateBanner?bannerId=<%= banners[i]._id %>">
+                                                                    <button class="delete-btn">Show</button></a>
+                                                            </td>
+
+                                                            <%}%>
+
+                                                                <td>
+                                                                    <a
+                                                                        href="/admin/deleteBanner?bannerId=<%= banners[i]._id %>">
+                                                                        <button class="delete-btn">Delete</button></a>
+                                                                </td>
+
+                                    </tr>
+                                    <% } } else { %>
+                                        <tr>
+                                            <td colspan="3">Banners not found</td>
+                                        </tr>
+                                        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/add-banner.js"></script>
+</body>
+
+</html>

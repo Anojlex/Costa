@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/singleProduct.css">
+</head>
+<body>
+   
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+        <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/costa">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home?For=Men">Men</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home?For=women">Women</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/user/profile"><img class="wishlist" src="/images/icons8-user-30.png" ></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home/wishList"><img class="wishlist" src="/images/icons8-heart-24(3).png" ></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="/home/cart"><img class="cart" src="/images/icons8-cart-30.png" ></a>
+                </li>
+                <li class="nav-item ">
+                    <% if(typeof logedin!=='undefined'&& logedin==="true") { %>
+                    <a class="nav-link" href="/user/logout">logout</a>
+                    <% }
+                    else { %>
+                        <a class="nav-link" href="/user/login">login</a>
+                   <% } %>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <% if(typeof product !== 'undefined'){ %>
+
+        <div class="product-details">
+            
+            <div class="product-images">
+                <% for(let i=0;i<product[0].images.length;i++) { %>
+                  
+                 <div class="image-thumbnail"><img  class="show-small-img" src="data:<%= product[0].images[i].contentType %>;base64,<%= product[0].images[i].data.toString('base64') %>" alt="Product Image"></div>
+                 <% } %>
+                          
+            </div>
+            
+         
+        <div class="preview-box">
+            <button class="slider-button prev" onclick="changeImage(-1)"><img src="/images/icons8-back-24.png"></button>
+             <div class="show">
+                
+                        
+                    <div class="image-preview-frame">
+                     <img id="previewImage" src="" alt="Preview Image">
+                </div>
+               
+          
+              </div>
+              <button class="slider-button next" onclick="changeImage(1)"><img src="/images/icons8-next-24.png"></button>
+              </div>
+
+
+            <div class="product-info">
+                <div><h2 class="product-title"><%= product[0].title %></h2>
+                <div><p class="product-description">
+                   <%= product[0].description %>
+                </p></div>
+                <div class="price-info">
+                    <span class="discount-text"><%= product[0].saleprice %></span>
+                    <span class="price-text">&#8377; <%= product[0].price %></span>
+                 
+                    <span class="discount-text"><%= Math.floor((product[0].price-product[0].saleprice)*100/product[0].price)%>%off</span>
+                  
+                </div>
+               
+                
+                <div class="buttons">
+               <% if(product[0].status!=="Active"){%>
+                <div class="outofStock">
+                    <button  class="add-to-cart-button">Add to Cart</button>
+                    <div id="outofStock" style="color: red;">Currently Unavailable</div>
+                    </div>
+                     <%} else if(product[0].stock==0){%>
+                        <div class="outofStock">
+                        <button  class="add-to-cart-button">Add to Cart</button>
+                        <div id="outofStock" style="color: red;">Out Of Stock</div>
+                        </div>
+
+                    <%}
+                    else if(product[0].stock<6 && product[0].stock>1){%>
+                        <div class="outofStock">
+                            <button onclick="addToCart('<%= product[0]._id %>')" class="add-to-cart-button">Add to Cart</button>
+                            <div id="outofStock" style="color: rgb(0, 85, 255);">Only few left</div>
+                            </div>
+                        <%} else {%>
+                        <button onclick="addToCart('<%= product[0]._id %>')" class="add-to-cart-button">Add to Cart</button>
+                    <%}%>
+                    <button onclick="addToWishlist('<%= product[0]._id %>')" class="add-to-wishlist-button">Add to Wishlist</button>
+                    <% } %>
+                </div>
+                
+                <div class="loader" id="loader"><img src="/images/icons8-dots-loading.gif"></div>
+               <div class="addToCartSuccess" id="addedToCartMsg"></div>
+               <div class="addToCartError" id="addToCartError"></div>
+
+                <div class="pincode">
+                    <div class="delivery"><p>Delivery Options..</p><img src="/images/icons8-truck-24.png"></div>
+                    <div  class="pincode-search"><input type="text" placeholder="Enter Pincode"> <button>Check</button></div>
+                    <small class="small-text">Please enter PIN code to check delivery time & Pay on Delivery Availability</small>
+                </div>
+                <div class="details">
+                    <ul>
+                    <li>100% Original Products</li>
+                    <li> Pay on delivery might be available</li>
+                    <li>Easy 14 days returns and exchanges</li>
+                    <li>Try & Buy might be available</li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+    crossorigin="anonymous"></script>
+      <script src="/javascript/image-preview.js"></script>
+      <script src="/javascript/zoom-image.js"></script>
+      <script src="/javascript/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
