@@ -224,24 +224,25 @@ width: 22px;
     background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
     z-index: 99;
   }
-
-  .CODconfirm{
+  .CODconfirm {
     width: 365px;
+    max-width: 90%; /* Set a maximum width for responsiveness */
     height: auto;
     display: none;
     position: fixed;
-   background-color: white;
-   border-radius: 2px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 2px;
     border: 3px solid #f1f1f1;
     z-index: 999;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-    flex-direction: column;
-   bottom:20%;
-   left: 40%;
-   font-size: 13px;
-  padding: 15px;
-    
+    left: 50%; /* Move the popup to the center horizontally */
+    top: 50%; /* Move the popup to the center vertically */
+    transform: translate(-50%, -50%); /* Center the popup perfectly */
+    font-size: 13px;
+    padding: 15px;
 }
+
 .CODconfirm h6{
     font-size: 16px;
     font-weight: 600;

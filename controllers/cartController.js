@@ -56,7 +56,10 @@ const addToCart = async (req, res) => {
 const loadCart=async(req,res)=>{
  
   const userid=req.session.userId
-  const product=await User.findOne({_id:new mongoose.Types.ObjectId(userid)}).populate('cart.product');
+  const product = await User.findOne({ _id: new mongoose.Types.ObjectId(userid) })
+    .populate('cart.product')
+    .sort({ createdAt: 1 });
+
    
   const coupons=await Coupon.find({status:"Active"})
  

@@ -50,112 +50,107 @@
     </nav>
 
     <div class="container">
-        <div class="row mainRow">
-            <div class="col-lg-9">
-                <div class="leftDiv">
-                    <div class="paymentOptions">
+       
+
+           
+               
+         <div class="paymentOptions">
+
                         <div class="payHeading">Select Payment Mode</div>
-                        <div class="outer d-flex">
-                            <div class="paymentLeft">
+
+                        <div class="row">
+
+                        <div class="col-lg-9 col-md-9 col-12  d-flex">
+
+                            <div class="paymentLeft col-lg-3 ">
                                 <div class="paymentOption" onclick="showPaymentOption()">
-                                   Online Payment
+                                    Online Payment
                                 </div>
-                                
-                                
                                 <div class="paymentOption" onclick="showCOD()">Cash On Delivery</div>
                             </div>
-                            
-                            <div class="paymentRight" id="paymentDetails">
 
-                                <div class="PaymentForm" id="paymentForm">
+
+                            <div class="paymentRight  col-12" id="paymentDetails">
+                                <div class=" col-12 PaymentForm" id="paymentForm">
                                     <form method="post" action="/home/cart/proceedPayment/createRazorpayOrder?couponId=<%= couponId %>">
                                         <h4>Card Payment</h4>
                                         <p>For safe, contactless and hassle-free delivery, pay using card/wallet/netbanking</p>
                                         <p>By placing this order, you agree to COSTA's T&C</p>
                                         <div>Wallet Balance: <b><%= walletBalance %></b></div>
-                                       <div> <input type="checkbox" name="walletUsed" id="walletUsed" value="true"><label>Use wallet Amount</label></div>
+                                        <div>
+                                            <input type="checkbox" name="walletUsed" id="walletUsed" value="true">
+                                            <label>Use wallet Amount</label>
+                                        </div>
                                         <button type="submit" id="payButton">PAY <%= CouponAppliedPrice %></button>
                                     </form>
                                 </div>
-                                <div class="walletForm" id="walletForm">
+                                <div class="col-12 walletForm" id="walletForm">
                                     <form method="post" action="">
                                         <h5>Wallet Payment</h5>
                                         <p>For safe, contactless and hassle-free delivery, pay using card/wallet/netbanking</p>
                                         <p>By placing this order, you agree to COSTA's T&C</p>
-                                       <div>Wallet Balance:<b><%= walletBalance %></b></div>
-                                            <button type="submit" >PAY  <%= CouponAppliedPrice %></button>
-                                      
+                                        <div>Wallet Balance: <b><%= walletBalance %></b></div>
+                                        <button type="submit">PAY <%= CouponAppliedPrice %></button>
                                     </form>
-                                   
                                 </div>
-
-                                   
-
-
-
-
-
-
-                                <div class="COD" id="CODform">
+                                <div class=" col-12 COD" id="CODform">
                                     <h4>Cash On Delivery</h4>
-                                    <p>For safe, contactless and hassle free delivery, pay using card/wallet/netbanking</p>
-                                    
+                                    <p>For safe, contactless and hassle-free delivery, pay using card/wallet/netbanking</p>
                                     <button id="payButtonCod" onclick="openCODconfirm()">PLACE ORDER</button>
                                     <p>By placing this order, you agree to COSTA's T&C</p>
                                 </div>
-
-
                             </div>
                         </div>
-                    </div>
+
+                   
+            
 
 
-                </div>
-            </div>
-            <div class="col-lg-3">
+
+
+
+            <div class="col-lg-3 col-md-3 col-12">
                 <div class="rightDiv">
-                    <div class=" summary">
+                    <div class="summary">
                         <div class="mt-2">
                             <h6><b>Order Details</b></h6>
                         </div>
                         <% if(typeof totalPrice!=='undefined' &&typeof totalSalePrice!=='undefined' ){ %>
-                            <div class="row mt-3">
-                                <div class="col ">Bag Total</div>
-                                <div class="col text-right">&#8377; <%= totalPrice %>
-                                </div>
+                        <div class="row mt-3">
+                            <div class="col">Bag Total</div>
+                            <div class="col text-right">&#8377; <%= totalPrice %></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Bag Discount</div>
+                            <div class="col text-right">&#8377;<%= totalPrice-totalSalePrice %></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Coupon Savings</div>
+                            <div class="col text-right">&#8377;<%=couponSaving%></div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Delivery Fee</div>
+                            <div class="col text-right">
+                                &#8377;<span style="text-decoration: line-through;">99</span>
+                                <span style="color: green; font-weight: 600;">Free</span>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col">Bag Discount</div>
-                                <div class="col text-right">&#8377;<%= totalPrice-totalSalePrice %>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col">Coupon Savings</div>
-                                <div class="col text-right">&#8377;<%=couponSaving%>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col">Delivery Fee</div>
-                                <div class="col text-right">&#8377;<span style="text-decoration: line-through;">99
-                                    </span><span style="color: green;font-weight: 600;">Free</span></div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col">Order Total</div>
-                                <div class="col text-right">&#8377; <%= CouponAppliedPrice %>
-                                </div>
-                            </div>
-
-
-                    </div>
-
-                    <%} else { %>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">Order Total</div>
+                            <div class="col text-right">&#8377; <%= CouponAppliedPrice %></div>
+                        </div>
+                        <% } else { %>
                         <div>Empty</div>
-                        <%}%>
+                        <% } %>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
+            </div>
+        </div>
+        
+    </div>
+    
 
     <div class="overlay" id="overlay"></div>
 

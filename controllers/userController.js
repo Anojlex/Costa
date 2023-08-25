@@ -50,7 +50,7 @@ const loadHomepage = async (req, res) => {
     const banner = await Banner.find({ status: "display" })
 
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
-    res.render("costa", { women1, women2, men1, men2, banner, isLogedIn })
+    res.render("index", { women1, women2, men1, men2, banner, isLogedIn })
 
   } catch (error) {
     console.log(error.message);

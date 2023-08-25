@@ -37,18 +37,18 @@ app.use('/admin', adminRouter);
 app.use('/home', productRouter);
 
 
-// app.use((req, res, next) => {
-//   const error = new Error('Not Found');
-//   error.status = 404;
-//   next(error);
-// });
+app.use((req, res, next) => {
+  const error = new Error('Not Found');
+  error.status = 404;
+  next(error);
+});
 
 
-// app.use((err, req, res, next) => {
+app.use((err, req, res, next) => {
   
-//   res.status(err.status || 500);
-//  res.render("error")
-// });
+  res.status(err.status || 500);
+ res.render("error")
+});
 
 
 const port = process.env.PORT || 3000;

@@ -50,7 +50,7 @@
     <% if(typeof product!=='undefined'||product.cart.length!==0){ %>
     <div class="card">
         <div class="row cart-card-row">
-            <div class="col-md-9 cart-card">
+            <div class="col-lg-9 col-md-12 col-sm-12 col-12 cart-card">
                 <div class="title">
                     <div class="row">
                         <% if(product.cart.length==0){ %>
@@ -72,15 +72,15 @@
                         <% totalSalePrice+=(product.cart[i].product.saleprice*product.cart[i].quantity) %>
 
                 <div class="row border-top border-bottom">
-                    <div class="row main align-items-center">
+                    <div class="col-12  row main align-items-center">
                         
                                         
-                        <div class="col-2"><a href="/home/singleProduct?id=<%= product.cart[i].product._id %>"><img class="img-fluid image-thumbnail"src="data:<%= product.cart[i].product.images[0].contentType %>;base64,<%= product.cart[i].product.images[0].data.toString('base64') %>" alt="Product Image"></a></div>
-                        <div class="col">
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-6"><a href="/home/singleProduct?id=<%= product.cart[i].product._id %>"><img class="img-fluid image-thumbnail"src="data:<%= product.cart[i].product.images[0].contentType %>;base64,<%= product.cart[i].product.images[0].data.toString('base64') %>" alt="Product Image"></a></div>
+                        <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                         <div class="row text-muted"><%= product.cart[i].product.title %> </div>
                             <div class="row"><%= product.cart[i].product.description %> </div>
                         </div>
-                        <div class="col">
+                        <div class="col-lg-2 col-md-4 col-12">
                           
                                 <div class="quantity-controls">
                                     <button class="plusAndMinus" data-value="dec" data-cartid="<%= product.cart[i]._id%>" data-productid="<%= product.cart[i].product._id %>">-</button>
@@ -91,13 +91,13 @@
                             
                           </div>
                         
-                        <div class="price-and-btn">
+                        <div class="price-and-btn col-lg-3 col-12">
                             <div class="priceText">
-                              <div class="col-lg-1 price-info">&#8377; <%= product.cart[i].product.saleprice %><span class="close"></span></div>
-                              <div style="text-decoration: line-through;" class="col-lg-1 price-info">&#8377; <%= product.cart[i].product.price %> <span class="close">&#10005;</span></div>
-                              <div class="col-lg-1 price-info"> <%= Math.floor((product.cart[i].product.price-product.cart[i].product.saleprice)*100/product.cart[i].product.price) %>%off</div>
+                              <div class="col-lg-3 col-3 price-info">&#8377; <%= product.cart[i].product.saleprice %><span class="close"></span></div>
+                              <div style="text-decoration: line-through;" class="col-3  col-md-1 price-info">&#8377; <%= product.cart[i].product.price %> <span class="close">&#10005;</span></div>
+                              <div class="col-3 col-md-1 price-info"> <%= Math.floor((product.cart[i].product.price-product.cart[i].product.saleprice)*100/product.cart[i].product.price) %>%off</div>
                            </div>
-                        <div class="button-wrap">
+                        <div class="button-wrap " >
                            <a href="/home/cart/remove?id=<%= product.cart[i].product._id %>"><button class="btn-remove">Remove</button></a>
                             <a href="/home/cart/wishlist?id=<%= product.cart[i].product._id %>"><button class="btn-addtowishlist">Wishlist</button></a>
                         </div>
@@ -112,7 +112,7 @@
             </div>
               
             <% if(product.cart.length>0){%>
-            <div class="col-md-3 summary">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-12 summary">
                 <div><h5><b>Order Details</b></h5></div>
                 <hr>
                 <div class="row">
@@ -150,7 +150,7 @@
 <div style="color: rgb(188, 29, 8); font-size: 12px; text-align: center;" id="couponMessagefail"></div>
 
 <div class="row">
-    <div class="coupon_container">
+    <div class="coupon_container col-12">
         <div>
             <input type="radio" value="" name="SelectedCoupon" id="noCoupon">
             <label for="noCoupon">No Coupon</label>

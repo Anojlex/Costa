@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+   
     <link rel="stylesheet" href="/css/singleProduct.css">
 </head>
 <body>
@@ -48,11 +49,12 @@
         </div>
     </nav>
     <div class="container">
+        
         <% if(typeof product !== 'undefined'){ %>
-
-        <div class="product-details">
+        
+        <div class=" product-details">
             
-            <div class="product-images">
+            <div class="col-lg-2  product-images">
                 <% for(let i=0;i<product[0].images.length;i++) { %>
                   
                  <div class="image-thumbnail"><img  class="show-small-img" src="data:<%= product[0].images[i].contentType %>;base64,<%= product[0].images[i].data.toString('base64') %>" alt="Product Image"></div>
@@ -61,22 +63,22 @@
             </div>
             
          
-        <div class="preview-box">
-            <button class="slider-button prev" onclick="changeImage(-1)"><img src="/images/icons8-back-24.png"></button>
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 preview-box-wrapper">
+            <button class=" col-lg-2 col-3 slider-button prev " onclick="changeImage(-1)"><img src="/images/icons8-back-24.png"></button>
              <div class="show">
                 
                         
-                    <div class="image-preview-frame">
+                    <div class="col-lg-8 col-6 image-preview-frame">
                      <img id="previewImage" src="" alt="Preview Image">
                 </div>
                
           
               </div>
-              <button class="slider-button next" onclick="changeImage(1)"><img src="/images/icons8-next-24.png"></button>
-              </div>
+              <button class="col-lg-2 col-3 slider-button next" onclick="changeImage(1)"><img src="/images/icons8-next-24.png"></button>
+         </div>
 
-
-            <div class="product-info">
+            
+            <div class="col-lg-6  col-md-12 col-sm-12 col-12 product-info " style="padding: 15px;">
                 <div><h2 class="product-title"><%= product[0].title %></h2>
                 <div><p class="product-description">
                    <%= product[0].description %>
@@ -135,10 +137,12 @@
                
             </div>
         </div>
-    </div>
-    <div class="footer">
-        
-    </div>
+
+    
+</div>
+   
+</div>
+    
 
 
 

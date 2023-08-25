@@ -53,48 +53,47 @@
       <div class="banner_bg_main">
         
          <!-- header top section start -->
-         <div class="container">
-            <div class="header_section_top">
-               <div class="row">
-                  <div class="col-sm-12">
-                   
-                     <div class="custom_menu">
-                        <div><a href="/costa"><h1 class="costa-logo-main">C.O.S.T.A</h1></a></div>
-                       <div class="header-right">
-                        
-                        <ul>
-                     
-                           <li><a href="/home?For=Men">Men</a></li>
-                           <li><a href="/home?For=Women">Women</a></li>
-                          
-                           <li><a href="/user/profile">
-                              <i class="fa fa-user" aria-hidden="true"></i>
-                              <span class="padding_10"></span></a>
-                           </li>
-                          
-                           <li><a href="/home/wishlist"><img class="wishlist-icon" src="/images/icons8-heart-24.png" alt="wishlist"></a></li>
-                           <li><a href="/home/cart">
-                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                              <span class="padding_10"></span></a>
-                           </li>
-                           <% if (typeof isLogedIn !=='undefined' && isLogedIn==="true"){ %>                                                 
-                              <li><a href="/user/logout" id="login-link">Logout</a></li>
-                     
-                           <% }
-                           else { %>
-                              <li><a href="/user/login" id="login-link">Login</a></li>
-                           <%} %>
-                        </ul></div>
-                     </div>
-                  </div>
-               </div>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
+            <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/costa">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/home?For=Men">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home?For=Women">Women</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/user/profile"><img class="wishlist" src="/images/icons8-user-30.png" ></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(3).png" ></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/home/cart"><img class="cart" src="/images/icons8-cart-30.png" ></a>
+                    </li>
+                    <li class="nav-item ">
+                        <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                        <a class="nav-link" href="/user/logout">logout</a>
+                        <% }
+                        else { %>
+                            <a class="nav-link" href="/user/login">login</a>
+                       <% } %>
+                    </li>
+                </ul>
             </div>
-         </div>
- 
+        </nav>
          <!-- logo section end -->
 
          <!-- header section start -->
-         <div class="header_section">
+         <div class="header_section ">
             <div class="container">
                <div class="containt_main">              
                   <div class="main">                    
@@ -170,24 +169,23 @@
                            <% for (let i = 0; i < women1.length; i++) { %>
                               <div class="col-lg-3 col-sm-6">
                                  <div class="box_main">
-                                    <div class="tshirt_img">
-                                       <a href="/home/singleProduct?id=<%= women1[i]._id %>">
-                                       <img src="data:<%= women1[i].images[0].contentType %>;base64,<%= women1[i].images[0].data.toString('base64') %>" alt="Product Image">
-                                       </a>
-                                    </div>
-                                         
-                                    <h4 class="shirt_text"><%= women1[i].title %></h4>
-                                    <div class="product-tile">
-                                       <p class="sale-price_text">&#8377;<%= women1[i].saleprice %></p>
-                                       <p class="price_text">&#8377;<%= women1[i].price %></p>
-                                       
-                                       
-                                       <p class="discount-price"><%= Math.floor((women1[i].price-women1[i].saleprice)*100/women1[i].price) %>% off</p>
-                                       
-                                    </div>
-                                    
+                                     <div class="tshirt_img">
+                                         <a href="/home/singleProduct?id=<%= women1[i]._id %>">
+                                        
+                                             <img src="data:<%= women1[i].images[0].contentType %>;base64,<%= women1[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                         </a>
+                                     </div>
+                                     <h4 class="shirt_text"><%= women1[i].title %></h4>
+                                     <div class="product-tile">
+                                         <p class="sale-price_text">&#8377;<%= women1[i].saleprice %></p>
+                                         <p class="price_text">&#8377;<%= women1[i].price %></p>
+                                         <p class="discount-price"><%= Math.floor((women1[i].price - women1[i].saleprice) * 100 / women1[i].price) %>% off</p>
+                                         <div class="wishlist-heart"><a href="#"><img src="/images/icons8-heart-24(1).png" alt="wishlist"></a></div>
+                                     </div>
+                                   
+                                     
                                  </div>
-                              </div>
+                             </div>
                            <% } %>
                         </div>
                      </div>
