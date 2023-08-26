@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/costa">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/home?For=Men">Men</a>
@@ -40,12 +40,12 @@
                     <a class="nav-link" href="#"><img class="carticon" src="/images/icons8-cart-30.png" ></a>
                 </li>
                 <li class="nav-item ">
-                    <!-- <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                    <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
                     <a class="nav-link" href="/user/logout">logout</a>
                     <% }
                     else { %>
                         <a class="nav-link" href="/user/login">login</a>
-                   <% } %> -->
+                   <% } %>
                 </li>
             </ul>
             
@@ -241,6 +241,7 @@
                 <div><input type="radio" value="wallet" name="refundMode">  <label>Costa Wallet</label>
                 <div></div><input type="radio" value="original" name="refundMode">  <label>Original Payment Method</label></div>
                 <input type="hidden" name="orderId" value="<%= order.orderId %>">
+                
             <div class="buttons">
             <button   type="button" id="b2" onclick="closemodeOfRefundPopup()">Close</button>
            <button type="submit"  id="b1">Proceed</button>

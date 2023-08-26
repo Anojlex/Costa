@@ -340,7 +340,7 @@ let maxAmount=0
 
 
 const placeOrder = async (req,res) => {
-  console.log("new",req.query);
+console.log(req.query);
   let maxAmount=0
   let discount=0
   let couponCode="NA"
@@ -396,7 +396,7 @@ for (let i = 0; i < cart.length; i++) {
     status:"Pending"
   });
 }
- 
+  
 
     const order = new Order({
       orderId,
@@ -438,6 +438,7 @@ for (let i = 0; i < cart.length; i++) {
 
 
     const orderPlaced=await Order.findOne({orderId:orderId}).populate("cart.product").populate('user')
+
     await updateSalesReport(orderPlaced);
   
   res.render('orderPlaced',{orderPlaced})

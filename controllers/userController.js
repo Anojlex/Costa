@@ -50,7 +50,7 @@ const loadHomepage = async (req, res) => {
     const banner = await Banner.find({ status: "display" })
 
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
-    res.render("index", { women1, women2, men1, men2, banner, isLogedIn })
+    res.render("costa", { women1, women2, men1, men2, banner, isLogedIn })
 
   } catch (error) {
     console.log(error.message);
@@ -638,10 +638,21 @@ const loadOrderDetails = async (req, res) => {
 
 const cancelOrder = async (req, res) => {
   const userid = req.session.userId;
-  const { orderId, refundMode } = req.body;
+  const { orderId, refundMode,cartId } = req.body;
 
   try {
     await Order.updateOne({ orderId: orderId }, { $set: { status: "Cancelled" } });
+    await Order.updateOne(
+      {
+        orderId: orderId,
+        'cart._id':new mongoose.Types.ObjectId(cartId)
+      },
+      {
+        $set: {
+          'cart.$.status': 'Cancelled'
+        }
+      }
+    );
 
     if (refundMode === "wallet") {
       const cancelledOrder = await Order.findOne({ orderId: orderId });

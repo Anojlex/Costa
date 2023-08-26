@@ -1,384 +1,728 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>C.O.S.T.A</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="COSTA-FASHION INDIA LTD" content="">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="costa" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>C.O.S.T.A Fashions</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/css/templatemo-hexashop.css">
+
+    <link rel="stylesheet" href="/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="/css/lightbox.css">
+
+<link rel="stylesheet"  href="/css/costa-index.css">
+
+
+    </head>
     
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="/css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="/css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="/images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-      <!-- font awesome -->
-      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!--  -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-      <!-- owl stylesheets -->
+    <body>
+   
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+    
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 ">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="/home" class="logo">
+                           <h1 class="costa-logo" >C.O.S.T.A</h1>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/home" class="active">Home</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Men</a>
+                                <ul>
+                                    <li><a href="/home?For=Men">Jeans</a></li>
+                                    <li><a href="/home?For=Men">Shirts</a></li>
+                                    <li><a href="/home?For=Men">Trousers&Shorts</a></li>
+                                    <li><a href="/home?For=Men">T-shirts</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:;">Women</a>
+                                <ul>
+                                    <li><a href="/home?For=Women">Kurtas</a></li>
+                                    <li><a href="/home?For=Women">Dresses&Jumpsuits</a></li>
+                                    <li><a href="/home?For=Women">Jeans</a></li>
+                                    <li><a href="/home?For=Women">T-Shirts</a></li>
+                                </ul>
+                            </li>
 
-      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
-      <link rel="stylesheet" href="/css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="/css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <style>
-         .banner_bg_main {
-            <% if(typeof banner !== 'undefined') { %>
-               background-image: url(data:<%= banner[0].images.contentType %>;base64,<%= banner[0].images.data.toString('base64') %>);
-            <% } %>
-         }
-      </style>
-      
+                            
 
-   </head>
-   <body >
-     
-      <!-- banner bg main start -->
-      <div class="banner_bg_main">
-        
-         <!-- header top section start -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light outer-nav">
-            <a class="navbar-brand costa-logo" href="/costa">COSTA</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse nav-my-links" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/costa">Home</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/home?For=Men">Men</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/home?For=Women">Women</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/user/profile"><img class="wishlist" src="/images/icons8-user-30.png" ></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/home/wishlist"><img class="wishlist" src="/images/icons8-heart-24(3).png" ></a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="/home/cart"><img class="cart" src="/images/icons8-cart-30.png" ></a>
-                    </li>
-                    <li class="nav-item ">
-                        <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
-                        <a class="nav-link" href="/user/logout">logout</a>
-                        <% }
-                        else { %>
-                            <a class="nav-link" href="/user/login">login</a>
-                       <% } %>
-                    </li>
-                </ul>
+                            <% if(typeof isLogedIn!=='undefined'&& isLogedIn==="true") { %>
+                            <li class="scroll-to-section"><a href="/user/logout" >Logout</a></li>
+                            <% }
+                            else { %>
+                                <li class="scroll-to-section"><a href="/user/login" >Login</a></li>
+                           <% } %>
+                           <li ><a href="/user/profile"><i class="fa fa-user"></i></a></li>
+                           <li><a href="/home/wishlist"><i class="fa fa-heart"></i></a></li>
+                           <li><a href="/home/cart"><i class="fa fa-shopping-cart"></i></a></li>
+                           
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
             </div>
-        </nav>
-         <!-- logo section end -->
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
 
-         <!-- header section start -->
-         <div class="header_section ">
-            <div class="container">
-               <div class="containt_main">              
-                  <div class="main">                    
-                     <div class="input-group">
-                        <form class="input-group"  action="/home/search" method="post">
-                        <input type="text" class=" search-box"  name="keyword" placeholder="What are you looking for">
-                        <div class="input-group-append">
-                           <button class="btn btn-secondary" type="submit" style="background-color: #f26422aa; border-color:#f26422b5 ">
-                           <i class="fa fa-search"></i>
-                           </button>
+    <!-- ***** Main Banner Area Start ***** -->
+    
+    <div class="main-banner" id="top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <div class="thumb">
+                            <div class="inner-content">
+                                <h4>We Are  C.O.S.T.A</h4>
+                                <span>Explore the trends from East to West</span>
+                                <div class="main-border-button">
+                                    <a href="#">Purchase Now!</a>
+                                </div>
+                            </div>
+                            <img src="data:<%= banner[0].images.contentType %>;base64,<%= banner[0].images.data.toString('base64') %>" alt="">
                         </div>
-                       </form>
-                     </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Women</h4>
+                                            <span>Best Clothes For Women</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Women</h4>
+                                                <p>Elegance is not about being noticed, it's about being remembered.</p>
+                                                <div class="main-border-button">
+                                                    <a href="/home?For=Women">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/images/baner-right-image-01.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Men</h4>
+                                            <span>Best Clothes For Men</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Men</h4>
+                                                <p>Style is a way to say who you are without having to speak.</p>
+                                                <div class="main-border-button">
+                                                    <a href="/home/For=Men">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/images/baner-right-image-02.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Kids</h4>
+                                            <span>Best Clothes For Kids</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Kids</h4>
+                                                <p>"Kids' fashion is a playground of imagination, where every outfit transforms into a world of wonder and brings their unique personalities to life."</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/images/baner-right-image-03.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Accessories</h4>
+                                            <span>Best Trend Accessories</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Accessories</h4>
+                                                <p>Accessories are the exclamation points of an outfit.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#">Discover More</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/images/baner-right-image-04.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
 
-                  </div>               
-               </div>
+    <!-- ***** Men Area 1 Starts ***** -->
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Men's Latest</h2>
+                        <span>Details to details is what makes COSTA different from the others</span>
+                    </div>
+                </div>
             </div>
-         </div> 
-      
-         <!-- header section end -->
-         <!-- banner section start -->
-         <div class="banner_section layout_padding">
-            <div class="container">
-               <div id="my_slider" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                     <div class="carousel-item active">
-                        <div class="row">
-                           <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favourite shoping</h1>
-                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="row">
-                           <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favourite shoping</h1>
-                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="row">
-                           <div class="col-sm-12">
-                              <h1 class="banner_taital">Get Start <br>Your favourite shoping</h1>
-                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-                  <i class="fa fa-angle-left"></i>
-                  </a>
-                  <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-                  <i class="fa fa-angle-right"></i>
-                  </a>
-               </div>
-            </div>
-         </div>
-      </div>
-         <!-- banner section end -->
-     
-      <!-- banner bg main end -->
-      
-      <div class="fashion_section">
-         <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container">
-                     <h1 class="fashion_taital">Women fashion</h1>
-                     <div class="fashion_section_2">
-                        <div class="row"> 
-                           <% for (let i = 0; i < women1.length; i++) { %>
-                              <div class="col-lg-3 col-sm-6">
-                                 <div class="box_main">
-                                     <div class="tshirt_img">
-                                         <a href="/home/singleProduct?id=<%= women1[i]._id %>">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 p-4">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+
+                            <% for (let i = 0; i < men1.length; i++) { %>
+                            <div class="item " >
+                              
+                                <div class="thumb " >
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="/home/singleProduct?id=<%= men1[i]._id %>"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="#" onclick="addToWishlist('<%= men1[i]._id %>')"><i class="fa fa-heart"></i></a></li>
+                                            <li><a href="#" onclick="addToCart('<%= men1[i]._id%>')"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <a href="/home/singleProduct?id=<%= men1[i]._id %>">
                                         
-                                             <img src="data:<%= women1[i].images[0].contentType %>;base64,<%= women1[i].images[0].data.toString('base64') %>" alt="Product Image">
-                                         </a>
-                                     </div>
-                                     <h4 class="shirt_text"><%= women1[i].title %></h4>
-                                     <div class="product-tile">
-                                         <p class="sale-price_text">&#8377;<%= women1[i].saleprice %></p>
-                                         <p class="price_text">&#8377;<%= women1[i].price %></p>
-                                         <p class="discount-price"><%= Math.floor((women1[i].price - women1[i].saleprice) * 100 / women1[i].price) %>% off</p>
-                                         <div class="wishlist-heart"><a href="#"><img src="/images/icons8-heart-24(1).png" alt="wishlist"></a></div>
-                                     </div>
+                                        <img src="data:<%= men1[i].images[0].contentType %>;base64,<%= men1[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                    </a>
+                                </div>
+                                <div class="down-content">
+                                    <h4><%= men1[i].title %></h4>
+                                    <span style="text-decoration: line-through;">&#8377;<%= men1[i].price %></span>
+                                    <span style="color: rgba(0, 0, 0, 0.697);">&#8377;<%= men1[i].saleprice %></span>
+                                    <ul class="stars">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                </div>
+                           <div id="<%= men1[i]._id %>"></div>
+                           <div id="addToCartError"></div>
+                           
+                        </div>
+                        <% } %>
+                        
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Men Area 1 Ends ***** -->
+<!-- ***** Men Area 2 Starts ***** -->
+<section class="section" id="men">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="men-item-carousel">
+                    <div class="owl-men-item owl-carousel">
+
+                        <% for (let i = 0; i < men2.length; i++) { %>
+                        <div class="item " >
+                          
+                            <div class="thumb " >
+                                <div class="hover-content">
+                                    <ul>
+                                        <li><a href="/home/singleProduct?id=<%= men2[i]._id %>"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="single-product.html"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <a href="/home/singleProduct?id=<%= men2[i]._id %>">
+                                    
+                                    <img src="data:<%= men2[i].images[0].contentType %>;base64,<%= men2[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                </a>
+                            </div>
+                            <div class="down-content">
+                                <h4><%= men2[i].title %></h4>
+                                <span style="text-decoration: line-through;">&#8377;<%= men2[i].price %></span>
+                                <span style="color: rgba(0, 0, 0, 0.697);"></span>&#8377;<%= men2[i].saleprice %></span>
+                                
+                                <ul class="stars">
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                       
+                       
+                    </div>
+                    <% } %>
+                    
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Men Area 2 Ends ***** -->
+
+    <!-- ***** Women Area 1 Starts ***** -->
+    <section class="section" id="women">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Women's Latest</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+                          
+                          
+                           
+                               
+                                    <% for (let i = 0; i < women1.length; i++) { %>
+                                        <div class="item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a href="/home/singleProduct?id=<%= women1[i]._id %>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="/home/singleProduct?id=<%= women1[i]._id %>">
+                                            
+                                            <img src="data:<%= women1[i].images[0].contentType %>;base64,<%= women1[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="down-content">
+                                        <h4><%= women1[i].title %></h4>
+                                        
+                                        <span style="text-decoration: line-through;">&#8377;<%= women1[i].price %></span>
+                                        <span style="color: rgba(0, 0, 0, 0.697);">&#8377;<%= women1[i].saleprice %></span>
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
                                    
+                                </div>
+                                <% } %>
+
+                               
+                               
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Women Area 1 Ends ***** -->
+
+    <!-- ***** Women Area 2 Starts ***** -->
+    <section class="section" id="women">
+       
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+                          
+                          
+                            <% for (let i = 0; i < women2.length; i++) { %>
+                                <div class="item">
+                                 
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul>
+                                                <li><a  href="/home/singleProduct?id=<%= women2[i]._id %>"><i class="fa fa-eye"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="/home/singleProduct?id=<%= women2[i]._id %>">
+                                            
+                                            <img src="data:<%= women2[i].images[0].contentType %>;base64,<%= women2[i].images[0].data.toString('base64') %>" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="down-content">
+                                        <h4><%= women2[i].title %></h4>
                                      
-                                 </div>
-                             </div>
-                           <% } %>
+                                        <span style="text-decoration: line-through;">&#8377;<%= women2[i].price %></span>
+                                        <span style="color: rgba(0, 0, 0, 0.697);">&#8377;<%= women2[i].saleprice %></span>
+                                        <ul class="stars">
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                   
+                                </div>
+                                <% } %>
+
+                               
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Women fashion</h1>
-                     <div class="fashion_section_2">
-                        <div class="row"> 
-                           <% for (let i = 0; i < women2.length; i++) { %>
-                              <div class="col-lg-3 col-sm-6">
-                                 <div class="box_main">
-                                    <div class="tshirt_img">
-                                       <a href="/home/singleProduct?id=<%= women2[i]._id %>">
-                                       <img src="data:<%= women2[i].images[0].contentType %>;base64,<%= women2[i].images[0].data.toString('base64') %>" alt="Product Image">
-                                       </a>
-                                    </div>
-                                         
-                                    <h4 class="shirt_text"><%= women2[i].title %></h4>
-                                    <div class="product-tile">
-                                       <p class="sale-price_text">&#8377;<%= women2[i].saleprice %></p>
-                                       <p class="price_text">&#8377;<%= women2[i].price %></p>
-                                       
-                                       <p class="discount-price"><%= Math.floor((women2[i].price-women2[i].saleprice)*100/women2[i].price) %>% off</p>
-                                    </div>
-                                    
-                                 </div>
-                              </div>
-                           <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Women Area 2 Ends ***** -->
+
+    <!-- ***** Explore Area Starts ***** -->
+    <section class="section" id="explore">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <h2>Explore Our Products</h2>
+                        
+                        <div class="quote">
+                            <i class="fa fa-quote-left"></i><p>Costa, your ultimate fashion destination, caters to both men and women with a diverse range of stylish clothing</p>
                         </div>
-                     </div>
-                  </div>
-               </div>
-              
-            </div>
-            <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-            </a>
-         </div> 
-      </div>
-          
-      <!-- fashion section end -->
-      <!-- electronic section start -->
-      <div class="fashion_section">
-         <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container">
-                     <h1 class="fashion_taital">Men fashion</h1>
-                     <div class="fashion_section_2">
-                        <div class="row"> 
-                           <% for (let i = 0; i < men1.length; i++) { %>
-                              <div class="col-lg-3 col-sm-6">
-                                 <div class="box_main">
-                                    <div class="tshirt_img">
-                                       <a href="/home/singleProduct?id=<%= men1[i]._id %>">
-                                       <img src="data:<%= men1[i].images[0].contentType %>;base64,<%= men1[i].images[0].data.toString('base64') %>" alt="Product Image">
-                                       </a>
-                                    </div>
-                                         
-                                    <h4 class="shirt_text"><%= men1[i].title %></h4>
-                                    <div class="product-tile">
-                                       <p class="sale-price_text">&#8377;<%= men1[i].saleprice %></p>
-                                       <p class="price_text">&#8377;<%= men1[i].price %></p>
-                                       
-                                       <p class="discount-price"><%= Math.floor((men1[i].price-men1[i].saleprice)*100/men1[i].price) %>% off</p>
-                                    </div>
-                                    
-                                 </div>
-                              </div>
-                           <% } %>
+                        <p>Explore our curated collection that embodies the latest trends and timeless classics, ensuring you find the perfect outfit for any occasion. From sophisticated menswear to elegant womenswear, Costa offers unparalleled quality and design.</p>
+                        <p>Discover a world of fashion where every piece tells a story, allowing you to express your unique style with confidence and flair."</p>
+                        <div class="main-border-button">
+                            <a href="products.html">Discover More</a>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Men fashion</h1>
-                     <div class="fashion_section_2">
-                        <div class="row"> 
-                           <% for (let i = 0; i < men1.length; i++) { %>
-                              <div class="col-lg-3 col-sm-6">
-                                 <div class="box_main">
-                                    <div class="tshirt_img">
-                                       <a href="/home/singleProduct?id=<%= men1[i]._id %>">
-                                       <img src="data:<%= men1[i].images[0].contentType %>;base64,<%= men1[i].images[0].data.toString('base64') %>" alt="Product Image">
-                                       </a>
-                                    </div>
-                                         
-                                    <h4 class="shirt_text"><%= men1[i].title %></h4>
-                                    <div class="product-tile">
-                                       <p class="sale-price_text">&#8377;<%= men1[i].saleprice %></p>
-                                       <p class="price_text">&#8377;<%= men1[i].price %></p>
-                                       
-                                       <p class="discount-price"><%= Math.floor((men1[i].price-men1[i].saleprice)*100/men1[i].price) %>% off</p>
-                                    </div>
-                                    
-                                 </div>
-                              </div>
-                           <% } %>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="leather">
+                                    <h4>Leather Bags</h4>
+                                    <span>Latest Collection</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="first-image">
+                                    <img src="/images/explore-image-01.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="second-image">
+                                    <img src="/images/explore-image-02.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="types">
+                                    <h4>Different Types</h4>
+                                    <span>Over 304 Products</span>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-              
+                    </div>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-            </a>
-         </div> 
-      </div>
-      <!-- electronic section end -->
-      
-      <!-- jewellery  section end -->
-      <!-- footer section start -->
-      <div class="footer_section layout_padding">
-         <div class="container">
-            <div class="footer_logo"><h1>C.O.S.T.A</h1></div>
-            <div class="input_bt">
-               <input type="text" class="mail_bt" placeholder="" name="Your Email">
-               <span class="subscribe_bt" id="basic-addon2"><a href="#"></a></span>
+        </div>
+    </section>
+    <!-- ***** Explore Area Ends ***** -->
+
+    <!-- ***** Social Area Starts ***** -->
+    <section class="section" id="social">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>Social Media</h2>
+                        <span>Details to details is what makes COSTA different from the other themes.</span>
+                    </div>
+                </div>
             </div>
-            <div class="footer_menu">
-               <ul>
-                  <li><a href="#">Track your Order</a></li>
-                  <li><a href="#">Return and refund policy</a></li>
-                  <li><a href="#">payments</a></li>
-                  <li><a href="#">Cancellations</a></li>
-                  <li><a href="#">Customer Service</a></li>
-               </ul>
+        </div>
+        <div class="container">
+            <div class="row images">
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Fashion</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-01.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>New</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-02.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Brand</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-03.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Makeup</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-04.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Leather</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-05.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="thumb">
+                        <div class="icon">
+                            <a href="http://instagram.com">
+                                <h6>Bag</h6>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                        <img src="/images/instagram-06.jpg" alt="">
+                    </div>
+                </div>
             </div>
-            <div class="location_main">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
-         </div>
-      </div>
-      <!-- footer section end -->
-      <!-- copyright section start -->
-      <div class="copyright_section">
-         <div class="container">
-            <p class="copyright_text">© 2020 All Rights Reserved. Designed by team COSTA</p>
-         </div>
-      </div>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
-      <!-- Place this array of base64 images inside the <head> section or in a separate JavaScript file -->
-<script>
+        </div>
+    </section>
+    <!-- ***** Social Area Ends ***** -->
 
-   const bannerImagesBase64 = [
-     <% for (let i=0; i< banner.length; i++) { %>
-       "<%= banner[i].images.data.toString('base64') %>",
-     <% } %>
-   ];
+    <!-- ***** Subscribe Area Starts ***** -->
+    <div class="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="section-heading">
+                        <h2>By Subscribing To Our Newsletter You Can Get 30% Off</h2>
+                        <span>Details to details is what makes COSTA different from the other themes.</span>
+                    </div>
+                    <form id="subscribe" action="" method="get">
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <fieldset>
+                              <input name="name" type="text" id="name" placeholder="Your Name" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-5">
+                            <fieldset>
+                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-2">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
+                            </fieldset>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li>Store Location:<br><span>2nd Floor ,LULU MALL,KOCHI</span></li>
+                                <li>Phone:<br><span>010-020-0340</span></li>
+                                <li>Office Location:<br><span>Edappally,Kochi</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li>Work Hours:<br><span>10 AM - 11 PM Daily</span></li>
+                                <li>Email:<br><span>info@costafashions.com</span></li>
+                                <li>Social Media:<br><span><a href="#">Facebook</a>, <a href="#">Instagram</a>, <a href="#">Linkedin</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Subscribe Area Ends ***** -->
+    
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                           <h2 style="color: white;">C.O.S.T.A</h2>
+                        </div>
+                        <ul>
+                            <li><a href="#">costafashions ltd.2nd Floor,Lulu Mall,Kochi</a></li>
+                            <li><a href="#">costafashions@company.com</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Shopping &amp; Categories</h4>
+                    <ul>
+                        <li><a href="/home?For=Men">Men’s Shopping</a></li>
+                        <li><a href="/home?For=Women">Women’s Shopping</a></li>
+                       
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="/home">Homepage</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Help &amp; Information</h4>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="/user/profile">Shipping</a></li>
+                        <li><a href="/user/profile">Tracking ID</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>Copyright © 2022 COSTA Co., Ltd. All Rights Reserved. 
+                        
+                        <br>Design: <a href="#" target="_parent" title="free css templates">TEAM COSTA</a></p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
 
+    <!-- jQuery -->
+    <script src="/javascript/jquery-2.1.0.min.js"></script>
 
- </script>
- 
-      <script>
-         let currentImageIndex = 0; // Initialize the index for the current image
-       
-         function changeBannerImage() {
-           const bannerElement = document.querySelector(".banner_bg_main");
-           const base64ImageData = bannerImagesBase64[currentImageIndex];
-           bannerElement.style.backgroundImage = `url(data:<%= banner[0].images.contentType %>;base64,${base64ImageData})`;
-       
-           currentImageIndex = (currentImageIndex + 1) % bannerImagesBase64.length;
-         }
-       
-         // Call the function every 5 seconds (adjust the interval as needed)
-         setInterval(changeBannerImage, 4000); // Change the image every 5 seconds
-       </script>
-       
-       
-      <script src="/javascript/jquery.min.js"></script>
-      <script src="/javascript/popper.min.js"></script>
-      <script src="/javascript/bootstrap.bundle.min.js"></script>
-      <script src="/javascript/jquery-3.0.0.min.js"></script>
-      <script src="/javascript/plugin.js"></script>
-      <!-- sidebar -->
-      <script src="/javascript/jquery.mCustomScrollbar.concat.min.js"></script>
-     
-      <script src="/javascript/slider-setting.js"></script>
-       <script>
-        
+    <!-- Bootstrap -->
+    <script src="/javascript/popper.js"></script>
+    <script src="/javascript/bootstrap.min.js"></script>
 
+    <!-- Plugins -->
+    <script src="/javascript/owl-carousel.js"></script>
+    <script src="/javascript/accordions.js"></script>
+    <script src="/javascript/datepicker.js"></script>
+    <script src="/javascript/scrollreveal.min.js"></script>
+    <script src="/javascript/waypoints.min.js"></script>
+    <script src="/javascript/jquery.counterup.min.js"></script>
+    <script src="/javascript/imgfix.min.js"></script> 
+    <script src="/javascript/slick.js"></script> 
+    <script src="/javascript/lightbox.js"></script> 
+    <script src="/javascript/isotope.js"></script> 
+    
+    <!-- Global Init -->
+    <script src="/javascript/custom.js"></script>
+<script src="/javascript/addToCartFromHome.js"></script>
+    <script>
 
-      </script> 
+        $(function() {
+            var selectedClass = "";
+            $("p").click(function(){
+            selectedClass = $(this).attr("data-rel");
+            $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("."+selectedClass).fadeOut();
+            setTimeout(function() {
+              $("."+selectedClass).fadeIn();
+              $("#portfolio").fadeTo(50, 1);
+            }, 500);
+                
+            });
+        });
 
+    </script>
 
-   </body>
+  </body>
 </html>
