@@ -10,5 +10,5 @@ function connect() {
   .catch((err) => console.error('Error connecting to MongoDB:', err.message));
 }
 
-module.exports = { connect };
+module.exports = { connect }; 
 
